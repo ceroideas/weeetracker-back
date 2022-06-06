@@ -1,0 +1,455 @@
+2022-06-05T18:30:06.4523628-04:00 0HMI78BOGQH7J:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:4000/users/test   (ca22a1cb)
+2022-06-05T18:30:06.5784298-04:00 0HMI78BOGQH7J:00000001 [INF] Route matched with "{action = \"Get\", controller = \"Users\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Get()" on controller "WeeeTrackerAPI.Controllers.UsersController" ("WeeeTrackerAPI"). (122b2fdf)
+2022-06-05T18:30:06.6971854-04:00 0HMI78BOGQH7J:00000001 [INF] Executing action method "WeeeTrackerAPI.Controllers.UsersController.Get (WeeeTrackerAPI)" - Validation state: Valid (dad538d7)
+2022-06-05T18:30:06.7000294-04:00 0HMI78BOGQH7J:00000001 [INF] Executed action method "WeeeTrackerAPI.Controllers.UsersController.Get (WeeeTrackerAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 0.1497ms. (50a9e262)
+2022-06-05T18:30:06.7058380-04:00 0HMI78BOGQH7J:00000001 [INF] Executing ObjectResult, writing value of type '"System.String"'. (8a1b66c8)
+2022-06-05T18:30:06.7122188-04:00 0HMI78BOGQH7J:00000001 [INF] Executed action "WeeeTrackerAPI.Controllers.UsersController.Get (WeeeTrackerAPI)" in 130.9664ms (afa2e885)
+2022-06-05T18:30:06.7160625-04:00 0HMI78BOGQH7J:00000001 [INF] Request finished in 267.9848ms 200 text/plain; charset=utf-8 (791a596a)
+2022-06-05T21:12:31.0215362-04:00 0HMI7B6GK98O6:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:4000/users/all   (ca22a1cb)
+2022-06-05T21:12:31.1762603-04:00 0HMI7B6GK98O6:00000001 [INF] Route matched with "{action = \"All\", controller = \"Users\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult All()" on controller "WeeeTrackerAPI.Controllers.UsersController" ("WeeeTrackerAPI"). (122b2fdf)
+2022-06-05T21:12:31.3163643-04:00 0HMI7B6GK98O6:00000001 [INF] Executing action method "WeeeTrackerAPI.Controllers.UsersController.All (WeeeTrackerAPI)" - Validation state: Valid (dad538d7)
+2022-06-05T21:12:32.6452639-04:00 0HMI7B6GK98O6:00000001 [INF] Entity Framework Core "2.1.14-servicing-32113" initialized '"GVRBD3Context"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2022-06-05T21:13:21.0043202-04:00 0HMI7B6GK98O6:00000001 [ERR] An error occurred using the connection to database '"GVRBD3"' on server '"172.18.255.4"'. (5fc3407c)
+System.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) ---> System.ComponentModel.Win32Exception (53): No se ha encontrado la ruta de acceso de la red
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:53,State:0,Class:20
+2022-06-05T21:13:21.0323207-04:00 0HMI7B6GK98O6:00000001 [ERR] An exception occurred in the database while iterating the results of a query for context type '"WeeeTrackerAPI.Models.GVRBD3Context"'."
+""System.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) ---> System.ComponentModel.Win32Exception (53): No se ha encontrado la ruta de acceso de la red
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:53,State:0,Class:20" (64e2593c)
+System.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) ---> System.ComponentModel.Win32Exception (53): No se ha encontrado la ruta de acceso de la red
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+   at System.Collections.Generic.List`1.AddEnumerable(IEnumerable`1 enumerable)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at WeeeTrackerAPI.Services.UserService.GetAll() in C:\Users\Jorge\proyectos\weeetracker_gestor_back-main\WeeeTrackerAPI\Core\Services\UserService.cs:line 156
+   at WeeeTrackerAPI.Controllers.UsersController.All() in C:\Users\Jorge\proyectos\weeetracker_gestor_back-main\WeeeTrackerAPI\Controllers\UsersController.cs:line 53
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:53,State:0,Class:20
+2022-06-05T21:13:21.0363536-04:00 0HMI7B6GK98O6:00000001 [INF] Executed action "WeeeTrackerAPI.Controllers.UsersController.All (WeeeTrackerAPI)" in 49856.6257ms (afa2e885)
+2022-06-05T21:13:21.1155600-04:00 0HMI7B6GK98O6:00000001 [ERR] Connection id ""0HMI7B6GK98O6"", Request id ""0HMI7B6GK98O6:00000001"": An unhandled exception was thrown by the application. (560e7d32)
+System.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) ---> System.ComponentModel.Win32Exception (53): No se ha encontrado la ruta de acceso de la red
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+   at System.Collections.Generic.List`1.AddEnumerable(IEnumerable`1 enumerable)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at WeeeTrackerAPI.Services.UserService.GetAll() in C:\Users\Jorge\proyectos\weeetracker_gestor_back-main\WeeeTrackerAPI\Core\Services\UserService.cs:line 156
+   at WeeeTrackerAPI.Controllers.UsersController.All() in C:\Users\Jorge\proyectos\weeetracker_gestor_back-main\WeeeTrackerAPI\Controllers\UsersController.cs:line 53
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:53,State:0,Class:20
+2022-06-05T21:13:21.1249017-04:00 0HMI7B6GK98O6:00000001 [INF] Request finished in 50106.7201ms 500  (791a596a)
+2022-06-05T21:15:54.7804800-04:00 0HMI7B8DBGUH2:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:4000/users/all   (ca22a1cb)
+2022-06-05T21:15:54.9025192-04:00 0HMI7B8DBGUH2:00000001 [INF] Route matched with "{action = \"All\", controller = \"Users\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult All()" on controller "WeeeTrackerAPI.Controllers.UsersController" ("WeeeTrackerAPI"). (122b2fdf)
+2022-06-05T21:15:55.0200781-04:00 0HMI7B8DBGUH2:00000001 [INF] Executing action method "WeeeTrackerAPI.Controllers.UsersController.All (WeeeTrackerAPI)" - Validation state: Valid (dad538d7)
+2022-06-05T21:15:56.3194444-04:00 0HMI7B8DBGUH2:00000001 [INF] Entity Framework Core "2.1.14-servicing-32113" initialized '"GVRBD3Context"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2022-06-05T21:15:57.9478563-04:00 0HMI7B8DBGUH2:00000001 [INF] Executed DbCommand ("228"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [item].[Id], [item].[Usuario], [item].[Password], [item].[sidTercero], [item].[sidTipoTercero], [item].[Estado]
+FROM [WTK_USUARIO] AS [item]
+ORDER BY [item].[Id]" (0723d8ff)
+2022-06-05T21:15:58.2402016-04:00 0HMI7B8DBGUH2:00000001 [INF] Executed DbCommand ("229"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [item.WtkUsuarioPerfiles].[sidUsuario], [item.WtkUsuarioPerfiles].[sidPerfil], [t].[Id]
+FROM [WTK_USUARIO_PERFILES] AS [item.WtkUsuarioPerfiles]
+INNER JOIN (
+    SELECT [item0].[Id]
+    FROM [WTK_USUARIO] AS [item0]
+) AS [t] ON [item.WtkUsuarioPerfiles].[sidUsuario] = [t].[Id]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-06-05T21:15:58.2790109-04:00 0HMI7B8DBGUH2:00000001 [INF] Executed action method "WeeeTrackerAPI.Controllers.UsersController.All (WeeeTrackerAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 3255.9355ms. (50a9e262)
+2022-06-05T21:15:58.2845420-04:00 0HMI7B8DBGUH2:00000001 [INF] Executing ObjectResult, writing value of type '"<>f__AnonymousType7`1[[System.Object, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"'. (8a1b66c8)
+2022-06-05T21:15:58.3779363-04:00 0HMI7B8DBGUH2:00000001 [INF] Executed action "WeeeTrackerAPI.Controllers.UsersController.All (WeeeTrackerAPI)" in 3471.8333ms (afa2e885)
+2022-06-05T21:15:58.3814530-04:00 0HMI7B8DBGUH2:00000001 [INF] Request finished in 3605.8189ms 200 application/json; charset=utf-8 (791a596a)
+2022-06-05T21:16:39.0618492-04:00 0HMI7B8DBGUH4:00000001 [INF] Request starting HTTP/1.1 POST http://localhost:4000/users/login application/json 58 (ca22a1cb)
+2022-06-05T21:16:39.0703314-04:00 0HMI7B8DBGUH4:00000001 [INF] Route matched with "{action = \"Authenticate\", controller = \"Users\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Authenticate(WeeeTrackerAPI.Entities.User)" on controller "WeeeTrackerAPI.Controllers.UsersController" ("WeeeTrackerAPI"). (122b2fdf)
+2022-06-05T21:16:39.1500062-04:00 0HMI7B8DBGUH4:00000001 [INF] Executing action method "WeeeTrackerAPI.Controllers.UsersController.Authenticate (WeeeTrackerAPI)" - Validation state: Valid (dad538d7)
+2022-06-05T21:16:39.1531789-04:00 0HMI7B8DBGUH4:00000001 [INF] Entity Framework Core "2.1.14-servicing-32113" initialized '"GVRBD3Context"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2022-06-05T21:16:39.1724757-04:00 0HMI7B8DBGUH4:00000001 [WRN] The Include operation for navigation '"new WtkUsuario() {Id = [u].Id, Usuario = [u].Usuario, Password = [u].Password, SidTercero = [u].SidTercero, SidTipoTercero = [u].SidTipoTercero, Estado = [u].Estado, WtkUsuarioPerfiles = [u].WtkUsuarioPerfiles}.WtkUsuarioPerfiles"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2022-06-05T21:16:39.4410494-04:00 0HMI7B8DBGUH4:00000001 [INF] Executed DbCommand ("237"ms) [Parameters=["@__password_1='?' (Size = 50) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Usuario], [u].[Password], [u].[sidTercero], [u].[sidTipoTercero], [u].[Estado]
+FROM [WTK_USUARIO] AS [u]
+WHERE [u].[Usuario] IS NULL AND ([u].[Password] = @__password_1)
+ORDER BY [u].[Id]" (0723d8ff)
+2022-06-05T21:16:39.4422927-04:00 0HMI7B8DBGUH4:00000001 [INF] Executed action method "WeeeTrackerAPI.Controllers.UsersController.Authenticate (WeeeTrackerAPI)", returned result "Microsoft.AspNetCore.Mvc.BadRequestObjectResult" in 292.1657ms. (50a9e262)
+2022-06-05T21:16:39.4425107-04:00 0HMI7B8DBGUH4:00000001 [INF] Executing ObjectResult, writing value of type '"<>f__AnonymousType1`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"'. (8a1b66c8)
+2022-06-05T21:16:39.4443494-04:00 0HMI7B8DBGUH4:00000001 [INF] Executed action "WeeeTrackerAPI.Controllers.UsersController.Authenticate (WeeeTrackerAPI)" in 373.8719ms (afa2e885)
+2022-06-05T21:16:39.4445362-04:00 0HMI7B8DBGUH4:00000001 [INF] Request finished in 382.7772ms 400 application/json; charset=utf-8 (791a596a)
+2022-06-05T21:17:21.6447440-04:00 0HMI7B8DBGUH4:00000002 [INF] Request starting HTTP/1.1 POST http://localhost:4000/users/login application/json 60 (ca22a1cb)
+2022-06-05T21:17:21.6450308-04:00 0HMI7B8DBGUH4:00000002 [INF] Route matched with "{action = \"Authenticate\", controller = \"Users\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Authenticate(WeeeTrackerAPI.Entities.User)" on controller "WeeeTrackerAPI.Controllers.UsersController" ("WeeeTrackerAPI"). (122b2fdf)
+2022-06-05T21:17:21.6468684-04:00 0HMI7B8DBGUH4:00000002 [INF] Executing action method "WeeeTrackerAPI.Controllers.UsersController.Authenticate (WeeeTrackerAPI)" - Validation state: Valid (dad538d7)
+2022-06-05T21:17:21.6471959-04:00 0HMI7B8DBGUH4:00000002 [INF] Entity Framework Core "2.1.14-servicing-32113" initialized '"GVRBD3Context"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2022-06-05T21:17:22.3824307-04:00 0HMI7B8DBGUH4:00000002 [INF] Executed DbCommand ("734"ms) [Parameters=["@__password_1='?' (Size = 50) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Usuario], [u].[Password], [u].[sidTercero], [u].[sidTipoTercero], [u].[Estado]
+FROM [WTK_USUARIO] AS [u]
+WHERE [u].[Usuario] IS NULL AND ([u].[Password] = @__password_1)
+ORDER BY [u].[Id]" (0723d8ff)
+2022-06-05T21:17:22.3826010-04:00 0HMI7B8DBGUH4:00000002 [INF] Executed action method "WeeeTrackerAPI.Controllers.UsersController.Authenticate (WeeeTrackerAPI)", returned result "Microsoft.AspNetCore.Mvc.BadRequestObjectResult" in 735.6849ms. (50a9e262)
+2022-06-05T21:17:22.3826550-04:00 0HMI7B8DBGUH4:00000002 [INF] Executing ObjectResult, writing value of type '"<>f__AnonymousType1`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"'. (8a1b66c8)
+2022-06-05T21:17:22.3828323-04:00 0HMI7B8DBGUH4:00000002 [INF] Executed action "WeeeTrackerAPI.Controllers.UsersController.Authenticate (WeeeTrackerAPI)" in 737.7675ms (afa2e885)
+2022-06-05T21:17:22.3828972-04:00 0HMI7B8DBGUH4:00000002 [INF] Request finished in 738.3129ms 400 application/json; charset=utf-8 (791a596a)
+2022-06-05T21:17:41.6808836-04:00 0HMI7B8DBGUH4:00000003 [INF] Request starting HTTP/1.1 POST http://localhost:4000/users/login?username=PRUEBASECOLEC&password=1234 application/json 60 (ca22a1cb)
+2022-06-05T21:17:41.6810933-04:00 0HMI7B8DBGUH4:00000003 [INF] Route matched with "{action = \"Authenticate\", controller = \"Users\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Authenticate(WeeeTrackerAPI.Entities.User)" on controller "WeeeTrackerAPI.Controllers.UsersController" ("WeeeTrackerAPI"). (122b2fdf)
+2022-06-05T21:17:41.6832244-04:00 0HMI7B8DBGUH4:00000003 [INF] Executing action method "WeeeTrackerAPI.Controllers.UsersController.Authenticate (WeeeTrackerAPI)" - Validation state: Valid (dad538d7)
+2022-06-05T21:17:41.6835892-04:00 0HMI7B8DBGUH4:00000003 [INF] Entity Framework Core "2.1.14-servicing-32113" initialized '"GVRBD3Context"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2022-06-05T21:17:41.9045268-04:00 0HMI7B8DBGUH4:00000003 [INF] Executed DbCommand ("220"ms) [Parameters=["@__password_1='?' (Size = 50) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Usuario], [u].[Password], [u].[sidTercero], [u].[sidTipoTercero], [u].[Estado]
+FROM [WTK_USUARIO] AS [u]
+WHERE [u].[Usuario] IS NULL AND ([u].[Password] = @__password_1)
+ORDER BY [u].[Id]" (0723d8ff)
+2022-06-05T21:17:41.9046827-04:00 0HMI7B8DBGUH4:00000003 [INF] Executed action method "WeeeTrackerAPI.Controllers.UsersController.Authenticate (WeeeTrackerAPI)", returned result "Microsoft.AspNetCore.Mvc.BadRequestObjectResult" in 221.365ms. (50a9e262)
+2022-06-05T21:17:41.9048034-04:00 0HMI7B8DBGUH4:00000003 [INF] Executing ObjectResult, writing value of type '"<>f__AnonymousType1`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"'. (8a1b66c8)
+2022-06-05T21:17:41.9050025-04:00 0HMI7B8DBGUH4:00000003 [INF] Executed action "WeeeTrackerAPI.Controllers.UsersController.Authenticate (WeeeTrackerAPI)" in 223.8667ms (afa2e885)
+2022-06-05T21:17:41.9050636-04:00 0HMI7B8DBGUH4:00000003 [INF] Request finished in 224.286ms 400 application/json; charset=utf-8 (791a596a)
+2022-06-05T21:20:05.3411816-04:00 0HMI7B8DBGUH6:00000001 [INF] Request starting HTTP/1.1 POST http://localhost:4000/users/login application/json 57 (ca22a1cb)
+2022-06-05T21:20:05.3415479-04:00 0HMI7B8DBGUH6:00000001 [INF] Route matched with "{action = \"Authenticate\", controller = \"Users\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Authenticate(WeeeTrackerAPI.Entities.User)" on controller "WeeeTrackerAPI.Controllers.UsersController" ("WeeeTrackerAPI"). (122b2fdf)
+2022-06-05T21:20:05.3429869-04:00 0HMI7B8DBGUH6:00000001 [INF] Executing action method "WeeeTrackerAPI.Controllers.UsersController.Authenticate (WeeeTrackerAPI)" - Validation state: Valid (dad538d7)
+2022-06-05T21:20:05.3434233-04:00 0HMI7B8DBGUH6:00000001 [INF] Entity Framework Core "2.1.14-servicing-32113" initialized '"GVRBD3Context"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2022-06-05T21:20:05.6810803-04:00 0HMI7B8DBGUH6:00000001 [INF] Executed DbCommand ("337"ms) [Parameters=["@__username_0='?' (Size = 50) (DbType = AnsiString), @__password_1='?' (Size = 50) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Usuario], [u].[Password], [u].[sidTercero], [u].[sidTipoTercero], [u].[Estado]
+FROM [WTK_USUARIO] AS [u]
+WHERE ([u].[Usuario] = @__username_0) AND ([u].[Password] = @__password_1)
+ORDER BY [u].[Id]" (0723d8ff)
+2022-06-05T21:20:05.9429364-04:00 0HMI7B8DBGUH6:00000001 [INF] Executed DbCommand ("261"ms) [Parameters=["@__username_0='?' (Size = 50) (DbType = AnsiString), @__password_1='?' (Size = 50) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [u.WtkUsuarioPerfiles].[sidUsuario], [u.WtkUsuarioPerfiles].[sidPerfil], [t].[Id]
+FROM [WTK_USUARIO_PERFILES] AS [u.WtkUsuarioPerfiles]
+INNER JOIN (
+    SELECT TOP(1) [u0].[Id]
+    FROM [WTK_USUARIO] AS [u0]
+    WHERE ([u0].[Usuario] = @__username_0) AND ([u0].[Password] = @__password_1)
+    ORDER BY [u0].[Id]
+) AS [t] ON [u.WtkUsuarioPerfiles].[sidUsuario] = [t].[Id]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-06-05T21:20:06.2345024-04:00 0HMI7B8DBGUH6:00000001 [INF] Executed DbCommand ("274"ms) [Parameters=["@__usuario_SidTercero_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [t.WtkTextoLopd].[Id], [t.WtkTextoLopd].[sidTercero], [t.WtkTextoLopd].[Texto], [t].[pidTercero], [t].[nombre]
+FROM [Terceros] AS [t]
+LEFT JOIN [WTK_TEXTO_LOPD] AS [t.WtkTextoLopd] ON [t].[pidTercero] = [t.WtkTextoLopd].[sidTercero]
+WHERE [t].[pidTercero] = @__usuario_SidTercero_0" (0723d8ff)
+2022-06-05T21:20:06.5550869-04:00 0HMI7B8DBGUH6:00000001 [INF] Executed DbCommand ("253"ms) [Parameters=["@__usuario_Id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [d].[pidDireccionTercero], [d].[nombre]
+FROM [DireccionesTercero] AS [d]
+WHERE EXISTS (
+    SELECT 1
+    FROM [WTK_USUARIO_DIRECCIONES] AS [u]
+    WHERE ([u].[sidUsuario] = @__usuario_Id_0) AND ([d].[pidDireccionTercero] = [u].[sidDireccion]))
+ORDER BY [d].[nombre]" (0723d8ff)
+2022-06-05T21:20:06.8308908-04:00 0HMI7B8DBGUH6:00000001 [INF] Executed DbCommand ("257"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [item].[Id], [item].[Nombre], [item].[Orden]
+FROM [WTK_RESIDUOESPECIFICO] AS [item]
+ORDER BY [item].[Orden]" (0723d8ff)
+2022-06-05T21:20:07.0600912-04:00 0HMI7B8DBGUH6:00000001 [INF] Executed DbCommand ("222"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [item].[pidMarca], [item].[nombre]
+FROM [Marcas] AS [item]
+ORDER BY [item].[nombre]" (0723d8ff)
+2022-06-05T21:20:07.1555819-04:00 0HMI7B8DBGUH6:00000001 [INF] Executed action method "WeeeTrackerAPI.Controllers.UsersController.Authenticate (WeeeTrackerAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 1812.5012ms. (50a9e262)
+2022-06-05T21:20:07.1557374-04:00 0HMI7B8DBGUH6:00000001 [INF] Executing ObjectResult, writing value of type '"<>f__AnonymousType6`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"'. (8a1b66c8)
+2022-06-05T21:20:07.1567981-04:00 0HMI7B8DBGUH6:00000001 [INF] Executed action "WeeeTrackerAPI.Controllers.UsersController.Authenticate (WeeeTrackerAPI)" in 1815.2021ms (afa2e885)
+2022-06-05T21:20:07.1568659-04:00 0HMI7B8DBGUH6:00000001 [INF] Request finished in 1815.7864ms 200 application/json; charset=utf-8 (791a596a)
+2022-06-05T21:26:20.8771708-04:00 0HMI7B8DBGUH7:00000001 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:4000/users/login   (ca22a1cb)
+2022-06-05T21:26:20.8839265-04:00 0HMI7B8DBGUH7:00000001 [INF] Policy execution successful. (0204925d)
+2022-06-05T21:26:20.8865124-04:00 0HMI7B8DBGUH7:00000001 [INF] Request finished in 9.4631ms 204  (791a596a)
+2022-06-05T21:26:20.8879524-04:00 0HMI7B8DBGUH7:00000002 [INF] Request starting HTTP/1.1 POST http://localhost:4000/users/login application/json 43 (ca22a1cb)
+2022-06-05T21:26:20.8880978-04:00 0HMI7B8DBGUH7:00000002 [INF] Policy execution successful. (0204925d)
+2022-06-05T21:26:20.8883407-04:00 0HMI7B8DBGUH7:00000002 [INF] Route matched with "{action = \"Authenticate\", controller = \"Users\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Authenticate(WeeeTrackerAPI.Entities.User)" on controller "WeeeTrackerAPI.Controllers.UsersController" ("WeeeTrackerAPI"). (122b2fdf)
+2022-06-05T21:26:20.8891290-04:00 0HMI7B8DBGUH7:00000002 [INF] Executing action method "WeeeTrackerAPI.Controllers.UsersController.Authenticate (WeeeTrackerAPI)" - Validation state: Valid (dad538d7)
+2022-06-05T21:26:20.8897146-04:00 0HMI7B8DBGUH7:00000002 [INF] Entity Framework Core "2.1.14-servicing-32113" initialized '"GVRBD3Context"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2022-06-05T21:26:22.0715519-04:00 0HMI7B8DBGUH7:00000002 [INF] Executed DbCommand ("222"ms) [Parameters=["@__username_0='?' (Size = 50) (DbType = AnsiString), @__password_1='?' (Size = 50) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Usuario], [u].[Password], [u].[sidTercero], [u].[sidTipoTercero], [u].[Estado]
+FROM [WTK_USUARIO] AS [u]
+WHERE ([u].[Usuario] = @__username_0) AND ([u].[Password] = @__password_1)
+ORDER BY [u].[Id]" (0723d8ff)
+2022-06-05T21:26:22.2981464-04:00 0HMI7B8DBGUH7:00000002 [INF] Executed DbCommand ("226"ms) [Parameters=["@__username_0='?' (Size = 50) (DbType = AnsiString), @__password_1='?' (Size = 50) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [u.WtkUsuarioPerfiles].[sidUsuario], [u.WtkUsuarioPerfiles].[sidPerfil], [t].[Id]
+FROM [WTK_USUARIO_PERFILES] AS [u.WtkUsuarioPerfiles]
+INNER JOIN (
+    SELECT TOP(1) [u0].[Id]
+    FROM [WTK_USUARIO] AS [u0]
+    WHERE ([u0].[Usuario] = @__username_0) AND ([u0].[Password] = @__password_1)
+    ORDER BY [u0].[Id]
+) AS [t] ON [u.WtkUsuarioPerfiles].[sidUsuario] = [t].[Id]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-06-05T21:26:22.5205579-04:00 0HMI7B8DBGUH7:00000002 [INF] Executed DbCommand ("221"ms) [Parameters=["@__usuario_SidTercero_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [t.WtkTextoLopd].[Id], [t.WtkTextoLopd].[sidTercero], [t.WtkTextoLopd].[Texto], [t].[pidTercero], [t].[nombre]
+FROM [Terceros] AS [t]
+LEFT JOIN [WTK_TEXTO_LOPD] AS [t.WtkTextoLopd] ON [t].[pidTercero] = [t.WtkTextoLopd].[sidTercero]
+WHERE [t].[pidTercero] = @__usuario_SidTercero_0" (0723d8ff)
+2022-06-05T21:26:22.7426813-04:00 0HMI7B8DBGUH7:00000002 [INF] Executed DbCommand ("221"ms) [Parameters=["@__usuario_Id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [d].[pidDireccionTercero], [d].[nombre]
+FROM [DireccionesTercero] AS [d]
+WHERE EXISTS (
+    SELECT 1
+    FROM [WTK_USUARIO_DIRECCIONES] AS [u]
+    WHERE ([u].[sidUsuario] = @__usuario_Id_0) AND ([d].[pidDireccionTercero] = [u].[sidDireccion]))
+ORDER BY [d].[nombre]" (0723d8ff)
+2022-06-05T21:26:22.9602779-04:00 0HMI7B8DBGUH7:00000002 [INF] Executed DbCommand ("217"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [item].[Id], [item].[Nombre], [item].[Orden]
+FROM [WTK_RESIDUOESPECIFICO] AS [item]
+ORDER BY [item].[Orden]" (0723d8ff)
+2022-06-05T21:26:23.2039292-04:00 0HMI7B8DBGUH7:00000002 [INF] Executed DbCommand ("243"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [item].[pidMarca], [item].[nombre]
+FROM [Marcas] AS [item]
+ORDER BY [item].[nombre]" (0723d8ff)
+2022-06-05T21:26:23.2046825-04:00 0HMI7B8DBGUH7:00000002 [INF] Executed action method "WeeeTrackerAPI.Controllers.UsersController.Authenticate (WeeeTrackerAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 2315.5011ms. (50a9e262)
+2022-06-05T21:26:23.2047682-04:00 0HMI7B8DBGUH7:00000002 [INF] Executing ObjectResult, writing value of type '"<>f__AnonymousType6`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"'. (8a1b66c8)
+2022-06-05T21:26:23.2049244-04:00 0HMI7B8DBGUH7:00000002 [INF] Executed action "WeeeTrackerAPI.Controllers.UsersController.Authenticate (WeeeTrackerAPI)" in 2316.5439ms (afa2e885)
+2022-06-05T21:26:23.2049791-04:00 0HMI7B8DBGUH7:00000002 [INF] Request finished in 2317.0962ms 200 application/json; charset=utf-8 (791a596a)
+2022-06-05T21:30:36.6145227-04:00 0HMI7B8DBGUH8:00000001 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:4000/users/login   (ca22a1cb)
+2022-06-05T21:30:36.6146599-04:00 0HMI7B8DBGUH8:00000001 [INF] Policy execution successful. (0204925d)
+2022-06-05T21:30:36.6149103-04:00 0HMI7B8DBGUH8:00000001 [INF] Request finished in 0.4657ms 204  (791a596a)
+2022-06-05T21:30:36.6169414-04:00 0HMI7B8DBGUH8:00000002 [INF] Request starting HTTP/1.1 POST http://localhost:4000/users/login application/json 43 (ca22a1cb)
+2022-06-05T21:30:36.6169889-04:00 0HMI7B8DBGUH8:00000002 [INF] Policy execution successful. (0204925d)
+2022-06-05T21:30:36.6172009-04:00 0HMI7B8DBGUH8:00000002 [INF] Route matched with "{action = \"Authenticate\", controller = \"Users\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Authenticate(WeeeTrackerAPI.Entities.User)" on controller "WeeeTrackerAPI.Controllers.UsersController" ("WeeeTrackerAPI"). (122b2fdf)
+2022-06-05T21:30:36.6182101-04:00 0HMI7B8DBGUH8:00000002 [INF] Executing action method "WeeeTrackerAPI.Controllers.UsersController.Authenticate (WeeeTrackerAPI)" - Validation state: Valid (dad538d7)
+2022-06-05T21:30:36.6188613-04:00 0HMI7B8DBGUH8:00000002 [INF] Entity Framework Core "2.1.14-servicing-32113" initialized '"GVRBD3Context"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2022-06-05T21:30:36.8411891-04:00 0HMI7B8DBGUH8:00000002 [INF] Executed DbCommand ("221"ms) [Parameters=["@__username_0='?' (Size = 50) (DbType = AnsiString), @__password_1='?' (Size = 50) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Usuario], [u].[Password], [u].[sidTercero], [u].[sidTipoTercero], [u].[Estado]
+FROM [WTK_USUARIO] AS [u]
+WHERE ([u].[Usuario] = @__username_0) AND ([u].[Password] = @__password_1)
+ORDER BY [u].[Id]" (0723d8ff)
+2022-06-05T21:30:37.0672148-04:00 0HMI7B8DBGUH8:00000002 [INF] Executed DbCommand ("226"ms) [Parameters=["@__username_0='?' (Size = 50) (DbType = AnsiString), @__password_1='?' (Size = 50) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [u.WtkUsuarioPerfiles].[sidUsuario], [u.WtkUsuarioPerfiles].[sidPerfil], [t].[Id]
+FROM [WTK_USUARIO_PERFILES] AS [u.WtkUsuarioPerfiles]
+INNER JOIN (
+    SELECT TOP(1) [u0].[Id]
+    FROM [WTK_USUARIO] AS [u0]
+    WHERE ([u0].[Usuario] = @__username_0) AND ([u0].[Password] = @__password_1)
+    ORDER BY [u0].[Id]
+) AS [t] ON [u.WtkUsuarioPerfiles].[sidUsuario] = [t].[Id]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-06-05T21:30:37.2891723-04:00 0HMI7B8DBGUH8:00000002 [INF] Executed DbCommand ("221"ms) [Parameters=["@__usuario_SidTercero_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [t.WtkTextoLopd].[Id], [t.WtkTextoLopd].[sidTercero], [t.WtkTextoLopd].[Texto], [t].[pidTercero], [t].[nombre]
+FROM [Terceros] AS [t]
+LEFT JOIN [WTK_TEXTO_LOPD] AS [t.WtkTextoLopd] ON [t].[pidTercero] = [t.WtkTextoLopd].[sidTercero]
+WHERE [t].[pidTercero] = @__usuario_SidTercero_0" (0723d8ff)
+2022-06-05T21:30:37.5117642-04:00 0HMI7B8DBGUH8:00000002 [INF] Executed DbCommand ("222"ms) [Parameters=["@__usuario_Id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [d].[pidDireccionTercero], [d].[nombre]
+FROM [DireccionesTercero] AS [d]
+WHERE EXISTS (
+    SELECT 1
+    FROM [WTK_USUARIO_DIRECCIONES] AS [u]
+    WHERE ([u].[sidUsuario] = @__usuario_Id_0) AND ([d].[pidDireccionTercero] = [u].[sidDireccion]))
+ORDER BY [d].[nombre]" (0723d8ff)
+2022-06-05T21:30:37.7295327-04:00 0HMI7B8DBGUH8:00000002 [INF] Executed DbCommand ("217"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [item].[Id], [item].[Nombre], [item].[Orden]
+FROM [WTK_RESIDUOESPECIFICO] AS [item]
+ORDER BY [item].[Orden]" (0723d8ff)
+2022-06-05T21:30:37.9486446-04:00 0HMI7B8DBGUH8:00000002 [INF] Executed DbCommand ("218"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [item].[pidMarca], [item].[nombre]
+FROM [Marcas] AS [item]
+ORDER BY [item].[nombre]" (0723d8ff)
+2022-06-05T21:30:37.9493275-04:00 0HMI7B8DBGUH8:00000002 [INF] Executed action method "WeeeTrackerAPI.Controllers.UsersController.Authenticate (WeeeTrackerAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 1331.0726ms. (50a9e262)
+2022-06-05T21:30:37.9494004-04:00 0HMI7B8DBGUH8:00000002 [INF] Executing ObjectResult, writing value of type '"<>f__AnonymousType6`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"'. (8a1b66c8)
+2022-06-05T21:30:37.9495322-04:00 0HMI7B8DBGUH8:00000002 [INF] Executed action "WeeeTrackerAPI.Controllers.UsersController.Authenticate (WeeeTrackerAPI)" in 1332.285ms (afa2e885)
+2022-06-05T21:30:37.9495851-04:00 0HMI7B8DBGUH8:00000002 [INF] Request finished in 1332.6895ms 200 application/json; charset=utf-8 (791a596a)
+2022-06-05T21:31:11.0134911-04:00 0HMI7B8DBGUH8:00000003 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:4000/users/login   (ca22a1cb)
+2022-06-05T21:31:11.0135728-04:00 0HMI7B8DBGUH8:00000003 [INF] Policy execution successful. (0204925d)
+2022-06-05T21:31:11.0136423-04:00 0HMI7B8DBGUH8:00000003 [INF] Request finished in 0.2838ms 204  (791a596a)
+2022-06-05T21:31:11.0153282-04:00 0HMI7B8DBGUH8:00000004 [INF] Request starting HTTP/1.1 POST http://localhost:4000/users/login application/json 43 (ca22a1cb)
+2022-06-05T21:31:11.0154121-04:00 0HMI7B8DBGUH8:00000004 [INF] Policy execution successful. (0204925d)
+2022-06-05T21:31:11.0155783-04:00 0HMI7B8DBGUH8:00000004 [INF] Route matched with "{action = \"Authenticate\", controller = \"Users\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Authenticate(WeeeTrackerAPI.Entities.User)" on controller "WeeeTrackerAPI.Controllers.UsersController" ("WeeeTrackerAPI"). (122b2fdf)
+2022-06-05T21:31:11.0160483-04:00 0HMI7B8DBGUH8:00000004 [INF] Executing action method "WeeeTrackerAPI.Controllers.UsersController.Authenticate (WeeeTrackerAPI)" - Validation state: Valid (dad538d7)
+2022-06-05T21:31:11.0168932-04:00 0HMI7B8DBGUH8:00000004 [INF] Entity Framework Core "2.1.14-servicing-32113" initialized '"GVRBD3Context"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2022-06-05T21:31:11.2383551-04:00 0HMI7B8DBGUH8:00000004 [INF] Executed DbCommand ("221"ms) [Parameters=["@__username_0='?' (Size = 50) (DbType = AnsiString), @__password_1='?' (Size = 50) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Usuario], [u].[Password], [u].[sidTercero], [u].[sidTipoTercero], [u].[Estado]
+FROM [WTK_USUARIO] AS [u]
+WHERE ([u].[Usuario] = @__username_0) AND ([u].[Password] = @__password_1)
+ORDER BY [u].[Id]" (0723d8ff)
+2022-06-05T21:31:11.4809103-04:00 0HMI7B8DBGUH8:00000004 [INF] Executed DbCommand ("242"ms) [Parameters=["@__username_0='?' (Size = 50) (DbType = AnsiString), @__password_1='?' (Size = 50) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [u.WtkUsuarioPerfiles].[sidUsuario], [u.WtkUsuarioPerfiles].[sidPerfil], [t].[Id]
+FROM [WTK_USUARIO_PERFILES] AS [u.WtkUsuarioPerfiles]
+INNER JOIN (
+    SELECT TOP(1) [u0].[Id]
+    FROM [WTK_USUARIO] AS [u0]
+    WHERE ([u0].[Usuario] = @__username_0) AND ([u0].[Password] = @__password_1)
+    ORDER BY [u0].[Id]
+) AS [t] ON [u.WtkUsuarioPerfiles].[sidUsuario] = [t].[Id]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-06-05T21:31:11.7044305-04:00 0HMI7B8DBGUH8:00000004 [INF] Executed DbCommand ("223"ms) [Parameters=["@__usuario_SidTercero_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [t.WtkTextoLopd].[Id], [t.WtkTextoLopd].[sidTercero], [t.WtkTextoLopd].[Texto], [t].[pidTercero], [t].[nombre]
+FROM [Terceros] AS [t]
+LEFT JOIN [WTK_TEXTO_LOPD] AS [t.WtkTextoLopd] ON [t].[pidTercero] = [t.WtkTextoLopd].[sidTercero]
+WHERE [t].[pidTercero] = @__usuario_SidTercero_0" (0723d8ff)
+2022-06-05T21:31:11.9372126-04:00 0HMI7B8DBGUH8:00000004 [INF] Executed DbCommand ("232"ms) [Parameters=["@__usuario_Id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [d].[pidDireccionTercero], [d].[nombre]
+FROM [DireccionesTercero] AS [d]
+WHERE EXISTS (
+    SELECT 1
+    FROM [WTK_USUARIO_DIRECCIONES] AS [u]
+    WHERE ([u].[sidUsuario] = @__usuario_Id_0) AND ([d].[pidDireccionTercero] = [u].[sidDireccion]))
+ORDER BY [d].[nombre]" (0723d8ff)
+2022-06-05T21:31:12.1719360-04:00 0HMI7B8DBGUH8:00000004 [INF] Executed DbCommand ("234"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [item].[Id], [item].[Nombre], [item].[Orden]
+FROM [WTK_RESIDUOESPECIFICO] AS [item]
+ORDER BY [item].[Orden]" (0723d8ff)
+2022-06-05T21:31:12.3955489-04:00 0HMI7B8DBGUH8:00000004 [INF] Executed DbCommand ("223"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [item].[pidMarca], [item].[nombre]
+FROM [Marcas] AS [item]
+ORDER BY [item].[nombre]" (0723d8ff)
+2022-06-05T21:31:12.3960426-04:00 0HMI7B8DBGUH8:00000004 [INF] Executed action method "WeeeTrackerAPI.Controllers.UsersController.Authenticate (WeeeTrackerAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 1379.9517ms. (50a9e262)
+2022-06-05T21:31:12.3961072-04:00 0HMI7B8DBGUH8:00000004 [INF] Executing ObjectResult, writing value of type '"<>f__AnonymousType6`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"'. (8a1b66c8)
+2022-06-05T21:31:12.3962930-04:00 0HMI7B8DBGUH8:00000004 [INF] Executed action "WeeeTrackerAPI.Controllers.UsersController.Authenticate (WeeeTrackerAPI)" in 1380.678ms (afa2e885)
+2022-06-05T21:31:12.3963528-04:00 0HMI7B8DBGUH8:00000004 [INF] Request finished in 1381.126ms 200 application/json; charset=utf-8 (791a596a)
+2022-06-05T21:34:07.8348317-04:00 0HMI7B8DBGUH9:00000001 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:4000/users/login   (ca22a1cb)
+2022-06-05T21:34:07.8349939-04:00 0HMI7B8DBGUH9:00000001 [INF] Policy execution successful. (0204925d)
+2022-06-05T21:34:07.8350752-04:00 0HMI7B8DBGUH9:00000001 [INF] Request finished in 0.3723ms 204  (791a596a)
+2022-06-05T21:34:07.8374989-04:00 0HMI7B8DBGUH9:00000002 [INF] Request starting HTTP/1.1 POST http://localhost:4000/users/login application/json 43 (ca22a1cb)
+2022-06-05T21:34:07.8375546-04:00 0HMI7B8DBGUH9:00000002 [INF] Policy execution successful. (0204925d)
+2022-06-05T21:34:07.8379079-04:00 0HMI7B8DBGUH9:00000002 [INF] Route matched with "{action = \"Authenticate\", controller = \"Users\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Authenticate(WeeeTrackerAPI.Entities.User)" on controller "WeeeTrackerAPI.Controllers.UsersController" ("WeeeTrackerAPI"). (122b2fdf)
+2022-06-05T21:34:07.8388597-04:00 0HMI7B8DBGUH9:00000002 [INF] Executing action method "WeeeTrackerAPI.Controllers.UsersController.Authenticate (WeeeTrackerAPI)" - Validation state: Valid (dad538d7)
+2022-06-05T21:34:07.8395037-04:00 0HMI7B8DBGUH9:00000002 [INF] Entity Framework Core "2.1.14-servicing-32113" initialized '"GVRBD3Context"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2022-06-05T21:34:08.0663374-04:00 0HMI7B8DBGUH9:00000002 [INF] Executed DbCommand ("226"ms) [Parameters=["@__username_0='?' (Size = 50) (DbType = AnsiString), @__password_1='?' (Size = 50) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Usuario], [u].[Password], [u].[sidTercero], [u].[sidTipoTercero], [u].[Estado]
+FROM [WTK_USUARIO] AS [u]
+WHERE ([u].[Usuario] = @__username_0) AND ([u].[Password] = @__password_1)
+ORDER BY [u].[Id]" (0723d8ff)
+2022-06-05T21:34:08.2950246-04:00 0HMI7B8DBGUH9:00000002 [INF] Executed DbCommand ("228"ms) [Parameters=["@__username_0='?' (Size = 50) (DbType = AnsiString), @__password_1='?' (Size = 50) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [u.WtkUsuarioPerfiles].[sidUsuario], [u.WtkUsuarioPerfiles].[sidPerfil], [t].[Id]
+FROM [WTK_USUARIO_PERFILES] AS [u.WtkUsuarioPerfiles]
+INNER JOIN (
+    SELECT TOP(1) [u0].[Id]
+    FROM [WTK_USUARIO] AS [u0]
+    WHERE ([u0].[Usuario] = @__username_0) AND ([u0].[Password] = @__password_1)
+    ORDER BY [u0].[Id]
+) AS [t] ON [u.WtkUsuarioPerfiles].[sidUsuario] = [t].[Id]
+ORDER BY [t].[Id]" (0723d8ff)
+2022-06-05T21:34:08.9854231-04:00 0HMI7B8DBGUH9:00000002 [INF] Executed DbCommand ("690"ms) [Parameters=["@__usuario_SidTercero_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [t.WtkTextoLopd].[Id], [t.WtkTextoLopd].[sidTercero], [t.WtkTextoLopd].[Texto], [t].[pidTercero], [t].[nombre]
+FROM [Terceros] AS [t]
+LEFT JOIN [WTK_TEXTO_LOPD] AS [t.WtkTextoLopd] ON [t].[pidTercero] = [t.WtkTextoLopd].[sidTercero]
+WHERE [t].[pidTercero] = @__usuario_SidTercero_0" (0723d8ff)
+2022-06-05T21:34:09.2464014-04:00 0HMI7B8DBGUH9:00000002 [INF] Executed DbCommand ("260"ms) [Parameters=["@__usuario_Id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [d].[pidDireccionTercero], [d].[nombre]
+FROM [DireccionesTercero] AS [d]
+WHERE EXISTS (
+    SELECT 1
+    FROM [WTK_USUARIO_DIRECCIONES] AS [u]
+    WHERE ([u].[sidUsuario] = @__usuario_Id_0) AND ([d].[pidDireccionTercero] = [u].[sidDireccion]))
+ORDER BY [d].[nombre]" (0723d8ff)
+2022-06-05T21:34:09.4657180-04:00 0HMI7B8DBGUH9:00000002 [INF] Executed DbCommand ("219"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [item].[Id], [item].[Nombre], [item].[Orden]
+FROM [WTK_RESIDUOESPECIFICO] AS [item]
+ORDER BY [item].[Orden]" (0723d8ff)
+2022-06-05T21:34:09.6819947-04:00 0HMI7B8DBGUH9:00000002 [INF] Executed DbCommand ("216"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [item].[pidMarca], [item].[nombre]
+FROM [Marcas] AS [item]
+ORDER BY [item].[nombre]" (0723d8ff)
+2022-06-05T21:34:09.6827611-04:00 0HMI7B8DBGUH9:00000002 [INF] Executed action method "WeeeTrackerAPI.Controllers.UsersController.Authenticate (WeeeTrackerAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 1843.8491ms. (50a9e262)
+2022-06-05T21:34:09.6828458-04:00 0HMI7B8DBGUH9:00000002 [INF] Executing ObjectResult, writing value of type '"<>f__AnonymousType6`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"'. (8a1b66c8)
+2022-06-05T21:34:09.6829697-04:00 0HMI7B8DBGUH9:00000002 [INF] Executed action "WeeeTrackerAPI.Controllers.UsersController.Authenticate (WeeeTrackerAPI)" in 1845.0247ms (afa2e885)
+2022-06-05T21:34:09.6830158-04:00 0HMI7B8DBGUH9:00000002 [INF] Request finished in 1845.6498ms 200 application/json; charset=utf-8 (791a596a)
+2022-06-05T21:34:36.9832125-04:00 0HMI7B8DBGUH9:00000003 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:4000/solicitud/consulta   (ca22a1cb)
+2022-06-05T21:34:36.9832781-04:00 0HMI7B8DBGUH9:00000003 [INF] Policy execution successful. (0204925d)
+2022-06-05T21:34:36.9833360-04:00 0HMI7B8DBGUH9:00000003 [INF] Request finished in 0.2067ms 204  (791a596a)
+2022-06-05T21:34:36.9963057-04:00 0HMI7B8DBGUH9:00000004 [INF] Request starting HTTP/1.1 POST http://localhost:4000/solicitud/consulta application/json 37 (ca22a1cb)
+2022-06-05T21:34:36.9964285-04:00 0HMI7B8DBGUH9:00000004 [INF] Policy execution successful. (0204925d)
+2022-06-05T21:34:37.0307780-04:00 0HMI7B8DBGUH9:00000004 [INF] Successfully validated the token. (60169667)
+2022-06-05T21:34:37.0486844-04:00 0HMI7B8DBGUH9:00000004 [INF] Route matched with "{action = \"GetSolicitudes\", controller = \"Solicitud\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetSolicitudes(WeeeTrackerAPI.Entities.SolicitudFiltros)" on controller "WeeeTrackerAPI.Controllers.SolicitudController" ("WeeeTrackerAPI"). (122b2fdf)
+2022-06-05T21:34:37.0552558-04:00 0HMI7B8DBGUH9:00000004 [INF] Authorization was successful. (0d575a54)
+2022-06-05T21:34:37.3488128-04:00 0HMI7B8DBGUH9:00000004 [INF] Executing action method "WeeeTrackerAPI.Controllers.SolicitudController.GetSolicitudes (WeeeTrackerAPI)" - Validation state: Valid (dad538d7)
+2022-06-05T21:34:59.5225716-04:00 0HMI7B8DBGUH9:00000004 [INF] Executed action method "WeeeTrackerAPI.Controllers.SolicitudController.GetSolicitudes (WeeeTrackerAPI)", returned result "Microsoft.AspNetCore.Mvc.NotFoundObjectResult" in 22173.6235ms. (50a9e262)
+2022-06-05T21:34:59.5250792-04:00 0HMI7B8DBGUH9:00000004 [INF] Executing ObjectResult, writing value of type '"<>f__AnonymousType1`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"'. (8a1b66c8)
+2022-06-05T21:34:59.5291910-04:00 0HMI7B8DBGUH9:00000004 [INF] Executed action "WeeeTrackerAPI.Controllers.SolicitudController.GetSolicitudes (WeeeTrackerAPI)" in 22480.314ms (afa2e885)
+2022-06-05T21:34:59.5320526-04:00 0HMI7B8DBGUH9:00000004 [INF] Request finished in 22535.6552ms 404 application/json; charset=utf-8 (791a596a)
+2022-06-05T21:35:45.0268946-04:00 0HMI7B8DBGUHB:00000001 [INF] Request starting HTTP/1.1 POST http://localhost:4000/solicitud/consulta  0 (ca22a1cb)
+2022-06-05T21:35:45.0270988-04:00 0HMI7B8DBGUHB:00000001 [INF] Route matched with "{action = \"GetSolicitudes\", controller = \"Solicitud\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetSolicitudes(WeeeTrackerAPI.Entities.SolicitudFiltros)" on controller "WeeeTrackerAPI.Controllers.SolicitudController" ("WeeeTrackerAPI"). (122b2fdf)
+2022-06-05T21:35:45.0286228-04:00 0HMI7B8DBGUHB:00000001 [INF] Authorization failed. (b15dd539)
+2022-06-05T21:35:45.0288315-04:00 0HMI7B8DBGUHB:00000001 [INF] Authorization failed for the request at filter '"Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter"'. (8b6446cb)
+2022-06-05T21:35:45.0343223-04:00 0HMI7B8DBGUHB:00000001 [INF] Executing ChallengeResult with authentication schemes (["Bearer"]). (f3dca807)
+2022-06-05T21:35:45.0389378-04:00 0HMI7B8DBGUHB:00000001 [INF] AuthenticationScheme: "Bearer" was challenged. (d45f1f38)
+2022-06-05T21:35:45.0390390-04:00 0HMI7B8DBGUHB:00000001 [INF] Executed action "WeeeTrackerAPI.Controllers.SolicitudController.GetSolicitudes (WeeeTrackerAPI)" in 11.8984ms (afa2e885)
+2022-06-05T21:35:45.0391151-04:00 0HMI7B8DBGUHB:00000001 [INF] Request finished in 12.2849ms 401  (791a596a)
