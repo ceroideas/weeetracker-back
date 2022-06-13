@@ -9,6 +9,6 @@ namespace WeeeTrackerAPI.Core.Interfaces
     {
         WtkCambioEstadoFirma GuardarFirma(WtkCambioEstadoFirma firma);
         WtkCambioEstadoFirma SetDatosFirma(string nombre, string firma, int sidCambioEstado);
-        bool AltaFirma(Residuo residuo, WtkCambioEstado cambioEstado, string rutaLocal, string rutaServidor);
+        bool AltaFirma(WeeeTrackerAPI.Entities.Residuo residuo, WtkCambioEstado cambioEstado, string rutaLocal, string rutaServidor);
     }
 }

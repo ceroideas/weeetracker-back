@@ -47,10 +47,10 @@ namespace WeeeTrackerAPI.Controllers
         }
 
         [AllowAnonymous]
-        [HttpGet("all")]
-        public IActionResult All()
+        [HttpGet("all/{id}")]
+        public IActionResult All(int id)
         {
-            var users = _userService.GetAll();
+            var users = _userService.GetAll(id);
             return Ok( new {users = users} );
         }
     }

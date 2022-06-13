@@ -7,8 +7,8 @@ namespace WeeeTrackerAPI.Core.Interfaces
 {
     public interface IFotografia
     {
-        WtkCambioEstadoFotografia GuardarFotografia(WtkCambioEstadoFotografia fotografia);
-        WtkCambioEstadoFotografia SetDatosFotografia(string fichero, int sidCambioEstado);
+        WtkCambioEstadoFotografium GuardarFotografia(WtkCambioEstadoFotografium fotografia);
+        WtkCambioEstadoFotografium SetDatosFotografia(string fichero, int sidCambioEstado);
         bool AltaFotografia(List<Archivo> listaImagenes, int idCambioEstado, string rutaLocal, string rutaServidor);
     }
 }

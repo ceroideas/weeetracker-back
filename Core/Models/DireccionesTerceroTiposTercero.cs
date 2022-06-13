@@ -11,7 +11,7 @@ namespace WeeeTrackerAPI.Models
         public int Estado { get; set; }
         public Guid Rowguid { get; set; }
 
-        public DireccionesTercero SidDireccionesTerceroNavigation { get; set; }
-        public TiposTercero SidTipoTerceroNavigation { get; set; }
+        public virtual DireccionesTercero SidDireccionesTerceroNavigation { get; set; }
+        public virtual TiposTercero SidTipoTerceroNavigation { get; set; }
     }
 }

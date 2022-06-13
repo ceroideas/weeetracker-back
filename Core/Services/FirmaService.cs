@@ -22,7 +22,7 @@ namespace WeeeTrackerAPI.Services
         {
             try
             {
-                _context.WtkCambioEstadoFirma.Add(firma);
+                _context.WtkCambioEstadoFirmas.Add(firma);
                 _context.ChangeTracker.DetectChanges();
                 _context.SaveChanges();
 
@@ -54,7 +54,7 @@ namespace WeeeTrackerAPI.Services
             }
         }
 
-        public bool AltaFirma(Residuo residuo, WtkCambioEstado cambioEstado, string rutaLocal, string rutaServidor)
+        public bool AltaFirma(WeeeTrackerAPI.Entities.Residuo residuo, WtkCambioEstado cambioEstado, string rutaLocal, string rutaServidor)
         {
             try
             {

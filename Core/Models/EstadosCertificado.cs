@@ -7,16 +7,16 @@ namespace WeeeTrackerAPI.Models
     {
         public EstadosCertificado()
         {
-            Certificados = new HashSet<Certificados>();
-            HistoricoCambiosCertificadosSidEstadoAntesNavigation = new HashSet<HistoricoCambiosCertificados>();
-            HistoricoCambiosCertificadosSidEstadoDespuesNavigation = new HashSet<HistoricoCambiosCertificados>();
+            Certificados = new HashSet<Certificado>();
+            HistoricoCambiosCertificadoSidEstadoAntesNavigations = new HashSet<HistoricoCambiosCertificado>();
+            HistoricoCambiosCertificadoSidEstadoDespuesNavigations = new HashSet<HistoricoCambiosCertificado>();
         }
 
         public int PidEstadoCertificado { get; set; }
         public string Nombre { get; set; }
 
-        public ICollection<Certificados> Certificados { get; set; }
-        public ICollection<HistoricoCambiosCertificados> HistoricoCambiosCertificadosSidEstadoAntesNavigation { get; set; }
-        public ICollection<HistoricoCambiosCertificados> HistoricoCambiosCertificadosSidEstadoDespuesNavigation { get; set; }
+        public virtual ICollection<Certificado> Certificados { get; set; }
+        public virtual ICollection<HistoricoCambiosCertificado> HistoricoCambiosCertificadoSidEstadoAntesNavigations { get; set; }
+        public virtual ICollection<HistoricoCambiosCertificado> HistoricoCambiosCertificadoSidEstadoDespuesNavigations { get; set; }
     }
 }

@@ -19,7 +19,7 @@ namespace WeeeTrackerAPI.Services
             this._context = context;
         }
 
-        public WtkCambioEstadoFotografia GuardarFotografia(WtkCambioEstadoFotografia fotografia)
+        public WtkCambioEstadoFotografium GuardarFotografia(WtkCambioEstadoFotografium fotografia)
         {
             try
             {
@@ -36,11 +36,11 @@ namespace WeeeTrackerAPI.Services
             }
         }
 
-        public WtkCambioEstadoFotografia SetDatosFotografia(string fichero, int sidCambioEstado)
+        public WtkCambioEstadoFotografium SetDatosFotografia(string fichero, int sidCambioEstado)
         {
             try
             {
-                WtkCambioEstadoFotografia cambioEstadoFotografia = new WtkCambioEstadoFotografia();
+                WtkCambioEstadoFotografium cambioEstadoFotografia = new WtkCambioEstadoFotografium();
 
                 cambioEstadoFotografia.SidCambioEstado = sidCambioEstado;
                 cambioEstadoFotografia.Fichero = fichero;

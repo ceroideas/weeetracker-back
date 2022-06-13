@@ -29,14 +29,14 @@ namespace WeeeTrackerAPI.Services
                 stock.IdCentro = idCentro;
                 stock.IdTercero = idTercero;
 
-                List<StockResiduoEspecifico> listaStock = _context.WtkResiduoespecifico
+                List<StockResiduoEspecifico> listaStock = _context.WtkResiduoespecificos
                                                             .Select(item => new StockResiduoEspecifico
                                                             {
                                                                 Id = item.Id,
                                                                 Nombre = item.Nombre,
                                                                 Cantidad = _context.Raees
                                                                                 .SelectMany(r => 
-                                                                                    r.WtkCambioEstado,(parent, child) => new
+                                                                                    r.WtkCambioEstados,(parent, child) => new
                                                                                     {
                                                                                         parent,
                                                                                         child

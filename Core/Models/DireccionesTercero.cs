@@ -7,22 +7,21 @@ namespace WeeeTrackerAPI.Models
     {
         public DireccionesTercero()
         {
-            CertificadosSidDireccionTerceroDestinatarioNavigation = new HashSet<Certificados>();
-            CertificadosSidDireccionTerceroSolicitanteNavigation = new HashSet<Certificados>();
-            CertificadosTratamiento = new HashSet<CertificadosTratamiento>();
-            DireccionesTerceroContactosDireccionTercero = new HashSet<DireccionesTerceroContactosDireccionTercero>();
-            DireccionesTerceroTiposTercero = new HashSet<DireccionesTerceroTiposTercero>();
-            HistoricoPesadas = new HashSet<HistoricoPesadas>();
-            IndicadoresDireccionTerceroFraccion = new HashSet<IndicadoresDireccionTerceroFraccion>();
-            InventariosFisicos = new HashSet<InventariosFisicos>();
-            Pesadas = new HashSet<Pesadas>();
-            Remesas = new HashSet<Remesas>();
-            SolicitudesSidDireccionTerceroDestinoNavigation = new HashSet<Solicitudes>();
-            SolicitudesSidDireccionTerceroOrigenNavigation = new HashSet<Solicitudes>();
-            TercerosReutilizacion2017 = new HashSet<TercerosReutilizacion2017>();
-            Terminales = new HashSet<Terminales>();
-            WtkCambioEstado = new HashSet<WtkCambioEstado>();
-            WtkUsuarioDirecciones = new HashSet<WtkUsuarioDirecciones>();
+            CertificadoSidDireccionTerceroDestinatarioNavigations = new HashSet<Certificado>();
+            CertificadoSidDireccionTerceroSolicitanteNavigations = new HashSet<Certificado>();
+            DireccionesTerceroContactosDireccionTerceros = new HashSet<DireccionesTerceroContactosDireccionTercero>();
+            DireccionesTerceroTiposTerceros = new HashSet<DireccionesTerceroTiposTercero>();
+            HistoricoPesada = new HashSet<HistoricoPesada>();
+            IndicadoresDireccionTerceroFraccions = new HashSet<IndicadoresDireccionTerceroFraccion>();
+            InventariosFisicos = new HashSet<InventariosFisico>();
+            Pesada = new HashSet<Pesada>();
+            Remesas = new HashSet<Remesa>();
+            SolicitudeSidDireccionTerceroDestinoNavigations = new HashSet<Solicitude>();
+            SolicitudeSidDireccionTerceroOrigenNavigations = new HashSet<Solicitude>();
+            TercerosReutilizacion2017s = new HashSet<TercerosReutilizacion2017>();
+            Terminales = new HashSet<Terminale>();
+            WtkCambioEstados = new HashSet<WtkCambioEstado>();
+            SidUsuarios = new HashSet<WtkUsuario>();
         }
 
         public int PidDireccionTercero { get; set; }
@@ -46,25 +45,25 @@ namespace WeeeTrackerAPI.Models
         public int? DiasPesado { get; set; }
         public Guid Rowguid { get; set; }
 
-        public Municipios SidMunicipioNavigation { get; set; }
-        public Paises SidPaisNavigation { get; set; }
-        public Provincias SidProvinciaNavigation { get; set; }
-        public Terceros SidTerceroNavigation { get; set; }
-        public ICollection<Certificados> CertificadosSidDireccionTerceroDestinatarioNavigation { get; set; }
-        public ICollection<Certificados> CertificadosSidDireccionTerceroSolicitanteNavigation { get; set; }
-        public ICollection<CertificadosTratamiento> CertificadosTratamiento { get; set; }
-        public ICollection<DireccionesTerceroContactosDireccionTercero> DireccionesTerceroContactosDireccionTercero { get; set; }
-        public ICollection<DireccionesTerceroTiposTercero> DireccionesTerceroTiposTercero { get; set; }
-        public ICollection<HistoricoPesadas> HistoricoPesadas { get; set; }
-        public ICollection<IndicadoresDireccionTerceroFraccion> IndicadoresDireccionTerceroFraccion { get; set; }
-        public ICollection<InventariosFisicos> InventariosFisicos { get; set; }
-        public ICollection<Pesadas> Pesadas { get; set; }
-        public ICollection<Remesas> Remesas { get; set; }
-        public ICollection<Solicitudes> SolicitudesSidDireccionTerceroDestinoNavigation { get; set; }
-        public ICollection<Solicitudes> SolicitudesSidDireccionTerceroOrigenNavigation { get; set; }
-        public ICollection<TercerosReutilizacion2017> TercerosReutilizacion2017 { get; set; }
-        public ICollection<Terminales> Terminales { get; set; }
-        public ICollection<WtkCambioEstado> WtkCambioEstado { get; set; }
-        public ICollection<WtkUsuarioDirecciones> WtkUsuarioDirecciones { get; set; }
+        public virtual Municipio SidMunicipioNavigation { get; set; }
+        public virtual Paise SidPaisNavigation { get; set; }
+        public virtual Provincia SidProvinciaNavigation { get; set; }
+        public virtual Tercero SidTerceroNavigation { get; set; }
+        public virtual ICollection<Certificado> CertificadoSidDireccionTerceroDestinatarioNavigations { get; set; }
+        public virtual ICollection<Certificado> CertificadoSidDireccionTerceroSolicitanteNavigations { get; set; }
+        public virtual ICollection<DireccionesTerceroContactosDireccionTercero> DireccionesTerceroContactosDireccionTerceros { get; set; }
+        public virtual ICollection<DireccionesTerceroTiposTercero> DireccionesTerceroTiposTerceros { get; set; }
+        public virtual ICollection<HistoricoPesada> HistoricoPesada { get; set; }
+        public virtual ICollection<IndicadoresDireccionTerceroFraccion> IndicadoresDireccionTerceroFraccions { get; set; }
+        public virtual ICollection<InventariosFisico> InventariosFisicos { get; set; }
+        public virtual ICollection<Pesada> Pesada { get; set; }
+        public virtual ICollection<Remesa> Remesas { get; set; }
+        public virtual ICollection<Solicitude> SolicitudeSidDireccionTerceroDestinoNavigations { get; set; }
+        public virtual ICollection<Solicitude> SolicitudeSidDireccionTerceroOrigenNavigations { get; set; }
+        public virtual ICollection<TercerosReutilizacion2017> TercerosReutilizacion2017s { get; set; }
+        public virtual ICollection<Terminale> Terminales { get; set; }
+        public virtual ICollection<WtkCambioEstado> WtkCambioEstados { get; set; }
+
+        public virtual ICollection<WtkUsuario> SidUsuarios { get; set; }
     }
 }

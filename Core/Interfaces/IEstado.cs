@@ -10,7 +10,7 @@ namespace WeeeTrackerAPI.Core.Interfaces
 
         WtkCambioEstado InsertEstado(WtkCambioEstado cambioEstado);
         int UpdateEstado(WtkCambioEstado cambioEstado);
-        WtkCambioEstado SetDatosEstado(int idUsuario, string idRaee, Residuo residuo);
+        WtkCambioEstado SetDatosEstado(int idUsuario, string idRaee, WeeeTrackerAPI.Entities.Residuo residuo);
         WtkCambioEstado ExisteEntrada(string idRaee);
         WtkCambioEstado ExisteEntrada(string idRaee, int idCentro);
         WtkCambioEstado ExisteSalida(string idRaee);

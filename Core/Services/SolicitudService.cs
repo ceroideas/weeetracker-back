@@ -55,7 +55,7 @@ namespace WeeeTrackerAPI.Services
             try
             {
                 //*****************************************************************************************************************************************
-                //Descripción: Se obtendrán las 10 últimas solicitudes de recogida(ordenadas por código de solicitud) de un derteminado Origen.
+                //Descripciï¿½n: Se obtendrï¿½n las 10 ï¿½ltimas solicitudes de recogida(ordenadas por cï¿½digo de solicitud) de un derteminado Origen.
                 //*****************************************************************************************************************************************
 
                 XMLObtenerSolicitudesOrigenResponse response = await _client.XMLObtenerSolicitudesOrigenAsync(_cabecera, solicitud.idTercero, solicitud.idCentro);
@@ -74,8 +74,8 @@ namespace WeeeTrackerAPI.Services
             {
 
                 //*****************************************************************************************************************************************
-                //Descripción: Registro de nuevas solicitudes de recogida y asignación de Operador Logístico. 
-                //La solicitud se guardará en estado CON y, en caso de ser asignada, pasará a estado ASG. 
+                //Descripciï¿½n: Registro de nuevas solicitudes de recogida y asignaciï¿½n de Operador Logï¿½stico. 
+                //La solicitud se guardarï¿½ en estado CON y, en caso de ser asignada, pasarï¿½ a estado ASG. 
                 //Los posibles estados de una solicitud son los siguientes:
                 //*****************************************************************************************************************************************
 
@@ -102,7 +102,7 @@ namespace WeeeTrackerAPI.Services
             try
             {
                 //*****************************************************************************************************************************************
-                //Descripción: Actualiza la fecha de atención de una solicitud y su estado a “ATN”.
+                //Descripciï¿½n: Actualiza la fecha de atenciï¿½n de una solicitud y su estado a ï¿½ATNï¿½.
                 //*****************************************************************************************************************************************
 
                 CambioFechaEstimadaResponse response = await _client.CambioFechaEstimadaAsync(_cabecera, solicitud.codSolicitud, solicitud.fechaRec);
@@ -119,56 +119,57 @@ namespace WeeeTrackerAPI.Services
         {
             try
             {
-                WtkUsuario usuario = _userService.getUsuarioById(idUsuario);
-                if (usuario == null)
-                    return null;
+                // WtkUsuario usuario = _userService.getUsuarioById(idUsuario);
+                // if (usuario == null)
+                //     return null;
 
-                Entities.Solicitudes solicitudes = new Entities.Solicitudes();
-                Solicitud solicitudAlta = new Solicitud();
+                // Entities.Solicitudes solicitudes = new Entities.Solicitudes();
+                // Solicitud solicitudAlta = new Solicitud();
 
-                solicitudAlta.fecha = DateTime.Today;
-                solicitudAlta.codigoExt = string.Empty;
-                solicitudAlta.albaranOrigen = solicitud.Albaran;
-                solicitudAlta.terceroOri = usuario.SidTercero;
-                solicitudAlta.tipoTerceroOri = usuario.SidTipoTercero; 
-                solicitudAlta.direOri = solicitud.idCentro; 
-                solicitudAlta.descripcion = Constantes.ObservAltaEcoapp;
-                solicitudAlta.observaciones = solicitud.Observaciones;
+                // solicitudAlta.fecha = DateTime.Today;
+                // solicitudAlta.codigoExt = string.Empty;
+                // solicitudAlta.albaranOrigen = solicitud.Albaran;
+                // solicitudAlta.terceroOri = usuario.SidTercero;
+                // solicitudAlta.tipoTerceroOri = usuario.SidTipoTercero; 
+                // solicitudAlta.direOri = solicitud.idCentro; 
+                // solicitudAlta.descripcion = Constantes.ObservAltaEcoapp;
+                // solicitudAlta.observaciones = solicitud.Observaciones;
 
-                if (solicitud.ListaResiduosEspecificos.Count > 0)
-                {                    
-                    int cont = 0;
-                    linea[] lineas = new linea[0];
+                // if (solicitud.ListaResiduosEspecificos.Count > 0)
+                // {                    
+                //     int cont = 0;
+                //     linea[] lineas = new linea[0];
 
-                    foreach (SolicitudResiduoEspecifico residuo in solicitud.ListaResiduosEspecificos)
-                    {
-                        ResiduosEspecificos residuosEspecifico = _residuoEspecifico.getResiduoEspecificoById(residuo.IdResiduo);
-                        if (residuosEspecifico != null)
-                        {
-                            Array.Resize(ref lineas, cont+1);
+                //     foreach (SolicitudResiduoEspecifico residuo in solicitud.ListaResiduosEspecificos)
+                //     {
+                //         ResiduosEspecifico residuosEspecifico = _residuoEspecifico.getResiduoEspecificoById(residuo.IdResiduo);
+                //         if (residuosEspecifico != null)
+                //         {
+                //             Array.Resize(ref lineas, cont+1);
 
-                            linea linea = new linea();
+                //             linea linea = new linea();
 
-                            linea.frac = (int)residuosEspecifico.SidFraccion;
-                            linea.res = (int)residuosEspecifico.SidResiduo;
-                            linea.resEspe = residuo.IdResiduo;
-                            linea.tipoCont = Constantes.SidTipoContenedor;
-                            linea.uni = residuo.Unidades;
-                            linea.kil = (int)residuosEspecifico.PesoEstimado * linea.uni;
-                            linea.observaciones = string.Empty;
+                //             linea.frac = (int)residuosEspecifico.SidFraccion;
+                //             linea.res = (int)residuosEspecifico.SidResiduo;
+                //             linea.resEspe = residuo.IdResiduo;
+                //             linea.tipoCont = Constantes.SidTipoContenedor;
+                //             linea.uni = residuo.Unidades;
+                //             linea.kil = (int)residuosEspecifico.PesoEstimado * linea.uni;
+                //             linea.observaciones = string.Empty;
 
-                            lineas[cont] = linea;
+                //             lineas[cont] = linea;
 
-                            cont++;
-                        }
-                    }
+                //             cont++;
+                //         }
+                //     }
 
-                    solicitudAlta.lineas = lineas;
-                }
+                //     solicitudAlta.lineas = lineas;
+                // }
 
-                solicitudes.solicitud = solicitudAlta;
+                // solicitudes.solicitud = solicitudAlta;
 
-                return solicitudes;
+                // return solicitudes;
+                return null;
             }
             catch (Exception ex)
             {
@@ -217,14 +218,14 @@ namespace WeeeTrackerAPI.Services
                                 linea lineaSolicitud = new linea();
 
                                 lineaSolicitud.frac = Convert.ToInt32(linea.Element("frac").Value);
-                                Fracciones fraccion = _fraccion.getFraccionById(lineaSolicitud.frac);
+                                Fraccione fraccion = _fraccion.getFraccionById(lineaSolicitud.frac);
                                 if (fraccion != null)
                                     lineaSolicitud.fracNombre = fraccion.Nombre;
 
                                 if (linea.Element("res").Value != string.Empty)
                                 {
                                     lineaSolicitud.res = Convert.ToInt32(linea.Element("res").Value);
-                                    Residuos residuo = _residuo.getResiduoById(lineaSolicitud.res);
+                                    WeeeTrackerAPI.Models.Residuo residuo = _residuo.getResiduoById(lineaSolicitud.res);
                                     if (residuo != null)
                                     {
                                         lineaSolicitud.resNombre = residuo.Nombre;
@@ -238,7 +239,7 @@ namespace WeeeTrackerAPI.Services
                                 if (linea.Element("resEspe").Value != string.Empty)
                                 {
                                     lineaSolicitud.resEspe = Convert.ToInt32(linea.Element("resEspe").Value);
-                                    ResiduosEspecificos residuoEspecifico = _residuoEspecifico.getResiduoEspecificoById(lineaSolicitud.resEspe);
+                                    ResiduosEspecifico residuoEspecifico = _residuoEspecifico.getResiduoEspecificoById(lineaSolicitud.resEspe);
                                     if (residuoEspecifico != null)
                                     {
                                         lineaSolicitud.resEspeNombre = residuoEspecifico.Nombre;

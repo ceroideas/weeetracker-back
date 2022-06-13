@@ -11,7 +11,7 @@ namespace WeeeTrackerAPI.Models
         public DateTime Fecha { get; set; }
         public float Peso { get; set; }
 
-        public Certificados SidCertificadoNavigation { get; set; }
-        public Raees SidRaeeNavigation { get; set; }
+        public virtual Certificado SidCertificadoNavigation { get; set; }
+        public virtual Raee SidRaeeNavigation { get; set; }
     }
 }

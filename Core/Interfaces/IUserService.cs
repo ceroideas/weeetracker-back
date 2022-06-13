@@ -5,10 +5,11 @@ namespace WeeeTrackerAPI.Core.Interfaces
 {
     public interface IUserService
     {
-        WtkUsuario getUsuario(string username, string password);
-        WtkUsuario getUsuarioById(int idUsuario);
-        object getPerfiles(WtkUsuario usuario);
+        ContactosDireccionTercero getUsuario(string username, string password);
+        ContactosDireccionTercero getUsuarioById(int idUsuario);
+        object getUsuarioDirecciones(int idUsuario);
+        object getPerfiles(ContactosDireccionTercero usuario);
         string Authenticate(IConfiguration config, string username, string password);
-        object GetAll();
+        object GetAll(int id);
     }
 }

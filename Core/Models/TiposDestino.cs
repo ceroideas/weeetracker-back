@@ -7,14 +7,12 @@ namespace WeeeTrackerAPI.Models
     {
         public TiposDestino()
         {
-            Raees = new HashSet<Raees>();
-            RaeesPruebas = new HashSet<RaeesPruebas>();
+            Raees = new HashSet<Raee>();
         }
 
         public int PidTipoDestino { get; set; }
         public string Nombre { get; set; }
 
-        public ICollection<Raees> Raees { get; set; }
-        public ICollection<RaeesPruebas> RaeesPruebas { get; set; }
+        public virtual ICollection<Raee> Raees { get; set; }
     }
 }

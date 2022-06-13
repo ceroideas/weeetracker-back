@@ -7,12 +7,12 @@ namespace WeeeTrackerAPI.Models
     {
         public WtkPerfil()
         {
-            WtkUsuarioPerfiles = new HashSet<WtkUsuarioPerfiles>();
+            SidUsuarios = new HashSet<WtkUsuario>();
         }
 
         public string Id { get; set; }
         public string Nombre { get; set; }
 
-        public ICollection<WtkUsuarioPerfiles> WtkUsuarioPerfiles { get; set; }
+        public virtual ICollection<WtkUsuario> SidUsuarios { get; set; }
     }
 }

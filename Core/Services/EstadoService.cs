@@ -26,7 +26,7 @@ namespace WeeeTrackerAPI.Services
         {
             try
             {                
-                _context.WtkCambioEstado.Add(cambioEstado);
+                _context.WtkCambioEstados.Add(cambioEstado);
                 _context.ChangeTracker.DetectChanges();
                 _context.SaveChanges();
 
@@ -44,7 +44,7 @@ namespace WeeeTrackerAPI.Services
             try
             {
                 WtkCambioEstado cambioEstadoUpdate =
-                    _context.WtkCambioEstado
+                    _context.WtkCambioEstados
                         .Select(item => new WtkCambioEstado
                         {
                             Id = item.Id,
@@ -54,7 +54,7 @@ namespace WeeeTrackerAPI.Services
 
                 cambioEstado.Id = cambioEstadoUpdate.Id;
 
-                _context.WtkCambioEstado.Update(cambioEstado);
+                _context.WtkCambioEstados.Update(cambioEstado);
                 _context.ChangeTracker.DetectChanges();
                 _context.SaveChanges();
 
@@ -67,7 +67,7 @@ namespace WeeeTrackerAPI.Services
             }
         }
 
-        public WtkCambioEstado SetDatosEstado(int idUsuario, string idRaee, Residuo residuo)
+        public WtkCambioEstado SetDatosEstado(int idUsuario, string idRaee, WeeeTrackerAPI.Entities.Residuo residuo)
         {
             try
             {
@@ -97,7 +97,7 @@ namespace WeeeTrackerAPI.Services
         {
             try
             {
-                WtkCambioEstado cambioEstado = _context.WtkCambioEstado
+                WtkCambioEstado cambioEstado = _context.WtkCambioEstados
                     .Where(
                         c => c.SidRaee == idRaee 
                         && c.SidEstado == (int)TipoEstadoIdentificacion.entrada)
@@ -115,7 +115,7 @@ namespace WeeeTrackerAPI.Services
         {
             try
             {
-                WtkCambioEstado cambioEstado = _context.WtkCambioEstado
+                WtkCambioEstado cambioEstado = _context.WtkCambioEstados
                     .Where(
                         c => c.SidRaee == idRaee
                         && c.SidEstado == (int)TipoEstadoIdentificacion.entrada
@@ -134,7 +134,7 @@ namespace WeeeTrackerAPI.Services
         {
             try
             {
-                WtkCambioEstado cambioEstado = _context.WtkCambioEstado
+                WtkCambioEstado cambioEstado = _context.WtkCambioEstados
                     .Where(
                         c => c.SidRaee == idRaee
                         && c.SidEstado == (int)TipoEstadoIdentificacion.salida)

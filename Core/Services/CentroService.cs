@@ -14,13 +14,13 @@ namespace WeeeTrackerAPI.Services
             this._context = context;
         }
 
-        public object getCentros(WtkUsuario usuario)
+        public object getCentros(ContactosDireccionTercero usuario)
         {
             try
             {
-                var direcciones = _context.DireccionesTercero
-                    .Where(d => d.WtkUsuarioDirecciones
-                    .Any(u => u.SidUsuario == usuario.Id))
+                var direcciones = _context.DireccionesTerceros
+                    .Where(d => d.SidUsuarios
+                    .Any(u => u.Id == usuario.PidContactoDireccionTercero))
                     .Select(item => new
                     {
                         item.PidDireccionTercero,

@@ -10,6 +10,6 @@ namespace WeeeTrackerAPI.Models
         public string Firma { get; set; }
         public string Nombre { get; set; }
 
-        public WtkCambioEstado SidCambioEstadoNavigation { get; set; }
+        public virtual WtkCambioEstado SidCambioEstadoNavigation { get; set; }
     }
 }

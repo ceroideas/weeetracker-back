@@ -19,7 +19,7 @@ namespace WeeeTrackerAPI.Services
         {
             try
             {
-                var residuos = _context.WtkResiduoespecifico
+                var residuos = _context.WtkResiduoespecificos
                     .Select(item => new
                     {
                         item.Id,
@@ -38,13 +38,13 @@ namespace WeeeTrackerAPI.Services
 
         }
 
-        public ResiduosEspecificos getResiduoEspecificoById(int idResiduoEspecifico)
+        public ResiduosEspecifico getResiduoEspecificoById(int idResiduoEspecifico)
         {
             try
             {
-                ResiduosEspecificos residuo = _context.ResiduosEspecificos
+                ResiduosEspecifico residuo = _context.ResiduosEspecificos
                     .Where(r=>r.PidResiduoEspecifico == idResiduoEspecifico)
-                    .Select(item => new ResiduosEspecificos
+                    .Select(item => new ResiduosEspecifico
                     {
                         PesoEstimado = item.PesoEstimado,
                         Nombre = item.Nombre,

@@ -7,9 +7,9 @@ namespace WeeeTrackerAPI.Models
     {
         public FirmasCertificado()
         {
-            CertificadosSidFirmaDestinoNavigation = new HashSet<Certificados>();
-            CertificadosSidFirmaProcedenciaNavigation = new HashSet<Certificados>();
-            CertificadosSidFirmaTransporteNavigation = new HashSet<Certificados>();
+            CertificadoSidFirmaDestinoNavigations = new HashSet<Certificado>();
+            CertificadoSidFirmaProcedenciaNavigations = new HashSet<Certificado>();
+            CertificadoSidFirmaTransporteNavigations = new HashSet<Certificado>();
         }
 
         public string PidFirmaCertificado { get; set; }
@@ -17,8 +17,8 @@ namespace WeeeTrackerAPI.Models
         public string Nombre { get; set; }
         public string Cargo { get; set; }
 
-        public ICollection<Certificados> CertificadosSidFirmaDestinoNavigation { get; set; }
-        public ICollection<Certificados> CertificadosSidFirmaProcedenciaNavigation { get; set; }
-        public ICollection<Certificados> CertificadosSidFirmaTransporteNavigation { get; set; }
+        public virtual ICollection<Certificado> CertificadoSidFirmaDestinoNavigations { get; set; }
+        public virtual ICollection<Certificado> CertificadoSidFirmaProcedenciaNavigations { get; set; }
+        public virtual ICollection<Certificado> CertificadoSidFirmaTransporteNavigations { get; set; }
     }
 }

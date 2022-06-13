@@ -18,6 +18,8 @@ using EFCache;
 using Microsoft.AspNetCore.Server.HttpSys;
 using Microsoft.AspNetCore;
 
+using System.Text.Json.Serialization;
+
 namespace WeeeTrackerAPI
 {
   public class Startup
@@ -33,7 +35,12 @@ namespace WeeeTrackerAPI
         public void ConfigureServices(IServiceCollection services)
         {            
             services.AddCors();
-            services.AddMvc();
+            services.AddMvc()
+            .AddJsonOptions(x => 
+                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
+
+            services.AddControllers().AddJsonOptions(x =>
+                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
             // configure strongly typed settings objects
             var appSettingsSection = Configuration.GetSection("AppSettings");

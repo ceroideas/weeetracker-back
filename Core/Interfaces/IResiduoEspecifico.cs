@@ -6,6 +6,6 @@ namespace WeeeTrackerAPI.Core.Interfaces
     public interface IResiduoEspecifico
     {
         object getResiduos();
-        ResiduosEspecificos getResiduoEspecificoById(int idResiduoEspecifico);
+        ResiduosEspecifico getResiduoEspecificoById(int idResiduoEspecifico);
     }
 }

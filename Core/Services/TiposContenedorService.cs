@@ -20,7 +20,7 @@ namespace WeeeTrackerAPI.Services
         {
             try
             {
-                TiposContenedor tipoContenedor = _context.TiposContenedor
+                TiposContenedor tipoContenedor = _context.TiposContenedors
                     .Where(r=>r.PidTipoContenedor == idTipoCont)
                     .Select(item => new TiposContenedor
                     {

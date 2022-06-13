@@ -15,7 +15,7 @@ namespace WeeeTrackerAPI.Services
             this._context = context;
         }
 
-        public object getTercero(WtkUsuario usuario)
+        public object getTercero(ContactosDireccionTercero usuario)
         {
             try
             {

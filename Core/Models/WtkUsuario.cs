@@ -7,9 +7,9 @@ namespace WeeeTrackerAPI.Models
     {
         public WtkUsuario()
         {
-            WtkCambioEstado = new HashSet<WtkCambioEstado>();
-            WtkUsuarioDirecciones = new HashSet<WtkUsuarioDirecciones>();
-            WtkUsuarioPerfiles = new HashSet<WtkUsuarioPerfiles>();
+            WtkCambioEstados = new HashSet<WtkCambioEstado>();
+            SidDireccions = new HashSet<DireccionesTercero>();
+            SidPerfils = new HashSet<WtkPerfil>();
         }
 
         public int Id { get; set; }
@@ -19,10 +19,11 @@ namespace WeeeTrackerAPI.Models
         public int SidTipoTercero { get; set; }
         public int Estado { get; set; }
 
-        public Terceros SidTerceroNavigation { get; set; }
-        public TiposTercero SidTipoTerceroNavigation { get; set; }
-        public ICollection<WtkCambioEstado> WtkCambioEstado { get; set; }
-        public ICollection<WtkUsuarioDirecciones> WtkUsuarioDirecciones { get; set; }
-        public ICollection<WtkUsuarioPerfiles> WtkUsuarioPerfiles { get; set; }
+        public virtual Tercero SidTerceroNavigation { get; set; }
+        public virtual TiposTercero SidTipoTerceroNavigation { get; set; }
+        public virtual ICollection<WtkCambioEstado> WtkCambioEstados { get; set; }
+
+        public virtual ICollection<DireccionesTercero> SidDireccions { get; set; }
+        public virtual ICollection<WtkPerfil> SidPerfils { get; set; }
     }
 }

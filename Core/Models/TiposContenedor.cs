@@ -7,10 +7,9 @@ namespace WeeeTrackerAPI.Models
     {
         public TiposContenedor()
         {
-            HistoricoCambiosSidTipoDeContenedorAntesNavigation = new HashSet<HistoricoCambios>();
-            HistoricoCambiosSidTipoDeContenedorDespuesNavigation = new HashSet<HistoricoCambios>();
-            Raees = new HashSet<Raees>();
-            RaeesPruebas = new HashSet<RaeesPruebas>();
+            HistoricoCambioSidTipoDeContenedorAntesNavigations = new HashSet<HistoricoCambio>();
+            HistoricoCambioSidTipoDeContenedorDespuesNavigations = new HashSet<HistoricoCambio>();
+            Raees = new HashSet<Raee>();
         }
 
         public int PidTipoContenedor { get; set; }
@@ -20,9 +19,8 @@ namespace WeeeTrackerAPI.Models
         public int? CodGtr { get; set; }
         public Guid Rowguid { get; set; }
 
-        public ICollection<HistoricoCambios> HistoricoCambiosSidTipoDeContenedorAntesNavigation { get; set; }
-        public ICollection<HistoricoCambios> HistoricoCambiosSidTipoDeContenedorDespuesNavigation { get; set; }
-        public ICollection<Raees> Raees { get; set; }
-        public ICollection<RaeesPruebas> RaeesPruebas { get; set; }
+        public virtual ICollection<HistoricoCambio> HistoricoCambioSidTipoDeContenedorAntesNavigations { get; set; }
+        public virtual ICollection<HistoricoCambio> HistoricoCambioSidTipoDeContenedorDespuesNavigations { get; set; }
+        public virtual ICollection<Raee> Raees { get; set; }
     }
 }

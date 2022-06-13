@@ -7,8 +7,7 @@ namespace WeeeTrackerAPI.Models
     {
         public CertificadosTratamiento()
         {
-            Raees = new HashSet<Raees>();
-            RaeesPruebas = new HashSet<RaeesPruebas>();
+            Raees = new HashSet<Raee>();
         }
 
         public int PidCertificadoTratamiento { get; set; }
@@ -21,12 +20,8 @@ namespace WeeeTrackerAPI.Models
         public bool? Incidencia { get; set; }
         public string ObservacionesIncidencia { get; set; }
         public bool? Forzado { get; set; }
-        public bool Reutilizacion { get; set; }
+        public bool? Reutilizacion { get; set; }
 
-        public DireccionesTercero SidDireccionTerceroNavigation { get; set; }
-        public Terceros SidTerceroNavigation { get; set; }
-        public TiposLecturaTratamiento SidTipoLecturaTratamientoNavigation { get; set; }
-        public ICollection<Raees> Raees { get; set; }
-        public ICollection<RaeesPruebas> RaeesPruebas { get; set; }
+        public virtual ICollection<Raee> Raees { get; set; }
     }
 }

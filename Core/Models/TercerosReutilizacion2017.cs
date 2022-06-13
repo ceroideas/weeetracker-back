@@ -9,7 +9,7 @@ namespace WeeeTrackerAPI.Models
         public int SidDireccionTercero { get; set; }
         public DateTime FechaTratamientosReutilizar { get; set; }
 
-        public DireccionesTercero SidDireccionTerceroNavigation { get; set; }
-        public Terceros SidTerceroNavigation { get; set; }
+        public virtual DireccionesTercero SidDireccionTerceroNavigation { get; set; }
+        public virtual Tercero SidTerceroNavigation { get; set; }
     }
 }

@@ -9,6 +9,6 @@ namespace WeeeTrackerAPI.Models
         public string Texto { get; set; }
         public int SidTercero { get; set; }
 
-        public Terceros SidTerceroNavigation { get; set; }
+        public virtual Tercero SidTerceroNavigation { get; set; }
     }
 }

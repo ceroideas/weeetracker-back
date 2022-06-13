@@ -5,7 +5,7 @@ namespace WeeeTrackerAPI.Core.Interfaces
 {
     public interface ITercero
     {
-        object getTercero(WtkUsuario usuario);
+        object getTercero(ContactosDireccionTercero usuario);
 
     }
 }

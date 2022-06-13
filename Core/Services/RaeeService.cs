@@ -44,9 +44,9 @@ namespace WeeeTrackerAPI.Core.Services
             _estadoService = estadoService;
         }
 
-        private Raees SetDatosRaee(string idRaee, Residuo residuo, ResiduosEspecificos residuoEspecifico)
+        private Raee SetDatosRaee(string idRaee, WeeeTrackerAPI.Entities.Residuo residuo, ResiduosEspecifico residuoEspecifico)
         {
-            Raees raee = new Raees();
+            Raee raee = new Raee();
 
             raee.PidRaee = residuo.Etiqueta;
             raee.SidResiduoEspecifico = residuo.IdResiduo;
@@ -67,7 +67,7 @@ namespace WeeeTrackerAPI.Core.Services
             return raee;
         }
 
-        private Raees AltaRaee(Raees raee)
+        private Raee AltaRaee(Raee raee)
         {
             try
             {
@@ -84,7 +84,7 @@ namespace WeeeTrackerAPI.Core.Services
             }
         }
 
-        public string AltaResiduo(int idUsuario, Residuo residuo)
+        public string AltaResiduo(int idUsuario, WeeeTrackerAPI.Entities.Residuo residuo)
         {
             //*********************************************************
             //ALTA DE UNA IDENTIFICACIÓN (DOMICILIO o ESTABLECIMIENTO).
@@ -160,7 +160,7 @@ namespace WeeeTrackerAPI.Core.Services
             
         }
 
-        public bool AltaEstado(int idUsuario, Residuo residuo)
+        public bool AltaEstado(int idUsuario, WeeeTrackerAPI.Entities.Residuo residuo)
         {
             using (var dbContextTransaction = _context.Database.BeginTransaction())
             {
@@ -203,11 +203,11 @@ namespace WeeeTrackerAPI.Core.Services
             }
         }
 
-        public bool ActualizaResiduo(Residuo residuo)
+        public bool ActualizaResiduo(WeeeTrackerAPI.Entities.Residuo residuo)
         {
             try
             {
-                Raees raee = SetDatosRaee(residuo.Etiqueta, residuo, _residuoEspecificoService.getResiduoEspecificoById(residuo.IdResiduo));
+                Raee raee = SetDatosRaee(residuo.Etiqueta, residuo, _residuoEspecificoService.getResiduoEspecificoById(residuo.IdResiduo));
 
                 _context.Raees.Attach(raee);
 
@@ -264,13 +264,13 @@ namespace WeeeTrackerAPI.Core.Services
                 throw new Exception(ex.Message);
             }
         }
-        public object GetRaeesResiduoEspecifico(Residuo residuo)
+        public object GetRaeesResiduoEspecifico(WeeeTrackerAPI.Entities.Residuo residuo)
         {
             try
             {
                 var cambioEstado = _context.Raees
                                     .Include(r => r.SidEstadoRaeeNavigation)
-                                    .SelectMany(r => r.WtkCambioEstado,
+                                    .SelectMany(r => r.WtkCambioEstados,
                                                 (parent, child) => new
                                                 {
                                                     parent,
@@ -308,13 +308,13 @@ namespace WeeeTrackerAPI.Core.Services
             }
         }
 
-        public object GetRaeesAlbaran(Residuo residuo)
+        public object GetRaeesAlbaran(WeeeTrackerAPI.Entities.Residuo residuo)
         {
             try
             {
                 var cambioEstado = _context.Raees
                                     .Include(r => r.SidEstadoRaeeNavigation)
-                                    .SelectMany(r => r.WtkCambioEstado,
+                                    .SelectMany(r => r.WtkCambioEstados,
                                                 (parent, child) => new
                                                 {
                                                     parent,

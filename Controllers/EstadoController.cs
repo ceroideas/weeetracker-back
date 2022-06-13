@@ -33,7 +33,7 @@ namespace WeeeTrackerAPI.Controllers
 
         
         [HttpPost("entrada")]
-        public IActionResult GetEntrada([FromBody]Residuo residuo)
+        public IActionResult GetEntrada([FromBody]WeeeTrackerAPI.Entities.Residuo residuo)
         {
             try
             {
@@ -50,7 +50,7 @@ namespace WeeeTrackerAPI.Controllers
         }
 
         [HttpPost("entrada/centro")]
-        public IActionResult GetEntradaCentro([FromBody]Residuo residuo)
+        public IActionResult GetEntradaCentro([FromBody]WeeeTrackerAPI.Entities.Residuo residuo)
         {
             try
             {
@@ -67,7 +67,7 @@ namespace WeeeTrackerAPI.Controllers
         }
 
         [HttpPost("salida")]
-        public IActionResult GetSalida([FromBody]Residuo residuo)
+        public IActionResult GetSalida([FromBody]WeeeTrackerAPI.Entities.Residuo residuo)
         {
             try
             {
@@ -84,7 +84,7 @@ namespace WeeeTrackerAPI.Controllers
         }
         
         [HttpPut("entrada")]
-        public IActionResult AltaEntrada([FromBody]Residuo residuo)
+        public IActionResult AltaEntrada([FromBody]WeeeTrackerAPI.Entities.Residuo residuo)
         {
             try
             {
@@ -104,7 +104,7 @@ namespace WeeeTrackerAPI.Controllers
         }
 
         [HttpPut("salida")]
-        public IActionResult AltaSalida([FromBody]Residuo residuo)
+        public IActionResult AltaSalida([FromBody]WeeeTrackerAPI.Entities.Residuo residuo)
         {
             try
             {

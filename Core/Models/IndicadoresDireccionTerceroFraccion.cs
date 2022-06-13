@@ -31,7 +31,7 @@ namespace WeeeTrackerAPI.Models
         public double SumDistanciaHastaTratamientoTramosComoPlanta { get; set; }
         public int NumRaeerecogidoInicial { get; set; }
 
-        public DireccionesTercero SidDireccionTerceroNavigation { get; set; }
-        public Fracciones SidFraccionNavigation { get; set; }
+        public virtual DireccionesTercero SidDireccionTerceroNavigation { get; set; }
+        public virtual Fraccione SidFraccionNavigation { get; set; }
     }
 }

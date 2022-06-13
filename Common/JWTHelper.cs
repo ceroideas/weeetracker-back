@@ -16,25 +16,35 @@ namespace WeeeTrackerAPI.Common
     {
         public static string GetToken(
             IConfiguration config,
-            WtkUsuario usuario,
+            ContactosDireccionTercero usuario,
             object tercero,
             object centros,
             object perfiles,
             object residuosEspecificos,
-            object marcas
+            object marcas,
+            object resp
             )
         {
             //----------------------------------------------------------------------------------------------------------------------------
             // Generación del Token JWT.
 
+            var _context = new GVRBD3Context();
+
+            var direcciones = JsonConvert.SerializeObject(
+                usuario.SidTerceroNavigation
+                    ,Formatting.None,
+                    new JsonSerializerSettings(){ ReferenceLoopHandling = ReferenceLoopHandling.Ignore});
+
             var tokenHandler = new JwtSecurityTokenHandler();
             // var key = Encoding.ASCII.GetBytes(config["Jwt:Key"].PadRight(16, '0'));
             var claims = new Claim[]
             {
-                new Claim(Claims.Id.ToString(), ((long)usuario.Id).ToString()),
-                new Claim(Claims.Login.ToString(), usuario.Usuario),
+                new Claim(Claims.Id.ToString(), ((long)usuario.PidContactoDireccionTercero).ToString()),
+                new Claim(Claims.Login.ToString(), usuario.Email),
                 new Claim(Claims.Tercero.ToString(), JsonConvert.SerializeObject(tercero)),
-                new Claim(Claims.TipoTercero.ToString(), ((long)usuario.SidTipoTercero).ToString()),
+                new Claim(Claims.Resps.ToString(), JsonConvert.SerializeObject(resp)),
+                new Claim(Claims.Direcciones.ToString(), direcciones),
+                // new Claim(Claims.TipoTercero.ToString(), ((long)tipo.SidTipoTercero).ToString()),
                 new Claim(Claims.Estado.ToString(), ((long)usuario.Estado).ToString()),
                 new Claim(Claims.Centros.ToString(), JsonConvert.SerializeObject(centros)),
                 new Claim(Claims.Perfiles.ToString(), JsonConvert.SerializeObject(perfiles)),

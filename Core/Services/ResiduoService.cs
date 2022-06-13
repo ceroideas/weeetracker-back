@@ -37,13 +37,13 @@ namespace WeeeTrackerAPI.Services
 
         }
 
-        public Residuos getResiduoById(int idResiduo)
+        public Residuo getResiduoById(int idResiduo)
         {
             try
             {
-                Residuos residuo = _context.Residuos
+                Residuo residuo = _context.Residuos
                     .Where(r=>r.PidResiduo == idResiduo)
-                    .Select(item => new Residuos
+                    .Select(item => new Residuo
                     {
                         PidResiduo = item.PidResiduo,
                         Nombre = item.Nombre

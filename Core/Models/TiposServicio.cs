@@ -7,13 +7,13 @@ namespace WeeeTrackerAPI.Models
     {
         public TiposServicio()
         {
-            Certificados = new HashSet<Certificados>();
+            Certificados = new HashSet<Certificado>();
         }
 
         public int PidTipoServicio { get; set; }
         public string Nombre { get; set; }
         public string Tipo { get; set; }
 
-        public ICollection<Certificados> Certificados { get; set; }
+        public virtual ICollection<Certificado> Certificados { get; set; }
     }
 }

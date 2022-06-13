@@ -16,13 +16,13 @@ namespace WeeeTrackerAPI.Services
         }
 
        
-        public Fracciones getFraccionById(int idFraccion)
+        public Fraccione getFraccionById(int idFraccion)
         {
             try
             {
-                Fracciones fraccion = _context.Fracciones
+                Fraccione fraccion = _context.Fracciones
                     .Where(r=>r.PidFraccion == idFraccion)
-                    .Select(item => new Fracciones
+                    .Select(item => new Fraccione
                     {
                         PidFraccion = item.PidFraccion,
                         Nombre = item.Nombre

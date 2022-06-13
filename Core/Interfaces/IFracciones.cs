@@ -5,6 +5,6 @@ namespace WeeeTrackerAPI.Core.Interfaces
 {
     public interface IFracciones
     {
-        Fracciones getFraccionById(int idFraccion);
+        Fraccione getFraccionById(int idFraccion);
     }
 }

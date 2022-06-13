@@ -11,6 +11,8 @@ namespace WeeeTrackerAPI.Common
         Login,
         Tercero,
         TipoTercero,
+        Direcciones,
+        Resps,
         Estado,
         Perfiles,
         Centros,

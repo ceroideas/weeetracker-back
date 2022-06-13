@@ -7,7 +7,7 @@ namespace WeeeTrackerAPI.Models
     {
         public ContactosDireccionTercero()
         {
-            DireccionesTerceroContactosDireccionTercero = new HashSet<DireccionesTerceroContactosDireccionTercero>();
+            DireccionesTerceroContactosDireccionTerceros = new HashSet<DireccionesTerceroContactosDireccionTercero>();
         }
 
         public int PidContactoDireccionTercero { get; set; }
@@ -22,7 +22,7 @@ namespace WeeeTrackerAPI.Models
         public bool? PerfilGvr { get; set; }
         public Guid Rowguid { get; set; }
 
-        public Terceros SidTerceroNavigation { get; set; }
-        public ICollection<DireccionesTerceroContactosDireccionTercero> DireccionesTerceroContactosDireccionTercero { get; set; }
+        public virtual Tercero SidTerceroNavigation { get; set; }
+        public virtual ICollection<DireccionesTerceroContactosDireccionTercero> DireccionesTerceroContactosDireccionTerceros { get; set; }
     }
 }

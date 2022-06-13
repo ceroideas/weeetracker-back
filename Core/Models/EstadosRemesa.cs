@@ -7,12 +7,12 @@ namespace WeeeTrackerAPI.Models
     {
         public EstadosRemesa()
         {
-            Remesas = new HashSet<Remesas>();
+            Remesas = new HashSet<Remesa>();
         }
 
         public int PidEstadoRemesa { get; set; }
         public string Nombre { get; set; }
 
-        public ICollection<Remesas> Remesas { get; set; }
+        public virtual ICollection<Remesa> Remesas { get; set; }
     }
 }

@@ -9,6 +9,10 @@ using WeeeTrackerAPI.Core.Interfaces;
 using WeeeTrackerAPI.Common;
 using Microsoft.AspNetCore.Identity;
 using WeeeTrackerAPI.Entities;
+using System.Collections.Generic;
+using Newtonsoft.Json;
+
+using BCrypt.Net;
 
 namespace WeeeTrackerAPI.Services
 {
@@ -21,7 +25,7 @@ namespace WeeeTrackerAPI.Services
         private CentroService _centroService;
         private ResiduoEspecificoService _residuoEspecificoService;
         private MarcaService _marcaService;
-        private WtkUsuario _usuario;
+        private ContactosDireccionTercero _usuario;
         private GVRBD3Context _context;
 
         public UserService(ILogger<UserService> logger, IOptions<AppSettings> appSettings, GVRBD3Context context)
@@ -36,13 +40,28 @@ namespace WeeeTrackerAPI.Services
             _marcaService = new MarcaService(_context);
         }
 
-        public WtkUsuario getUsuario(string username, string password)
+        public ContactosDireccionTercero getUsuario(string username, string password)
         {
             try
             {
-                WtkUsuario usuario = _context.WtkUsuario
+                ContactosDireccionTercero usuario = _context.ContactosDireccionTerceros
+                .Where(u => u.Email == username/* && u.Contrasena == password*/)
+                .Include(u => u.SidTerceroNavigation)
+                .Include(u => u.DireccionesTerceroContactosDireccionTerceros)
+                .FirstOrDefault();
+
+                foreach (var item in usuario.DireccionesTerceroContactosDireccionTerceros)
+                {
+                    var list = _context.DireccionesTerceros.Where(d => d.PidDireccionTercero == item.SidDireccionTercero).FirstOrDefault();
+                }
+
+                // usuario.SidTerceroNavigation = usuario.SidTerceroNavigation;
+
+                if (usuario == null || !BCrypt.Net.BCrypt.Verify(password, usuario.Contrasena))
+                    throw new Exception("El email o contraseña son incorrectas");
+                /*WtkUsuario usuario = _context.WtkUsuarios
                     .Where(u => u.Usuario == username && u.Password == password)
-                    .Include(u => u.WtkUsuarioPerfiles
+                    .Include(u => u.SidPerfils
                     )
                     .Select(item => new WtkUsuario
                     {
@@ -52,9 +71,9 @@ namespace WeeeTrackerAPI.Services
                         SidTercero = item.SidTercero,
                         SidTipoTercero = item.SidTipoTercero,
                         Estado = item.Estado,
-                        WtkUsuarioPerfiles = item.WtkUsuarioPerfiles
+                        SidPerfils = item.SidPerfils
                     })
-                    .FirstOrDefault();
+                    .FirstOrDefault();*/
 
                 return usuario;
             }
@@ -65,16 +84,25 @@ namespace WeeeTrackerAPI.Services
             }
         }
 
-        public WtkUsuario getUsuarioById(int idUsuario)
+        public ContactosDireccionTercero getUsuarioById(int idUsuario)
         {
             try
             {
-                WtkUsuario usuario = _context.WtkUsuario
+                ContactosDireccionTercero usuario = _context.ContactosDireccionTerceros
                                             .Where(u =>
-                                                u.Id == idUsuario
+                                                u.PidContactoDireccionTercero == idUsuario
                                             )
+                                            .Where(u => u.Estado == 1)
+                                            // .Include(u => u.DireccionesTerceroContactosDireccionTerceros)
+                                            .Include(u => u.SidTerceroNavigation)
                                             .FirstOrDefault();
 
+                // foreach (var item in usuario.DireccionesTerceroContactosDireccionTerceros)
+                // {
+                //     var list = _context.DireccionesTerceros.Where(d => d.PidDireccionTercero == item.SidDireccionTercero).FirstOrDefault();
+                //     item.SidDireccionTerceroNavigation = list;
+                // }
+
                 return usuario;
             }
             catch (Exception ex)
@@ -84,16 +112,17 @@ namespace WeeeTrackerAPI.Services
             }
         }
 
-        public object getPerfiles(WtkUsuario usuario)
+        public object getPerfiles(ContactosDireccionTercero usuario)
         {
             try
             {
-                var perfiles = usuario.WtkUsuarioPerfiles
-                    .Select(item => new
-                    {
-                        item.SidPerfil
-                    })
-                    .ToList();
+                string[] perfiles = new string[0]; 
+                // var perfiles = usuario.SidPerfils
+                //     .Select(item => new
+                //     {
+                //         item.Nombre
+                //     })
+                //     .ToList();
 
                 return perfiles;
             }
@@ -102,6 +131,14 @@ namespace WeeeTrackerAPI.Services
                 _logger.LogError(ex.Message.ToString());
                 return null;
             }
+        }
+
+        public object getUsuarioDirecciones(int id)
+        {
+            var lista = _context.DireccionesTerceroContactosDireccionTerceros
+            .ToList();
+
+            return lista;
         }
 
         public string Authenticate(IConfiguration config, string username, string password)
@@ -119,7 +156,7 @@ namespace WeeeTrackerAPI.Services
                 //Verificamos la password hasheada en la Base de Datos.
 
                 //genera la password hasheada.
-                //var hasher = new PasswordHasher<WtkUsuario>().HashPassword(_usuario, _usuario.Password);
+                //var hasher = new PasswordHasher<ContactosDireccionTercero>().HashPassword(_usuario, _usuario.Contrasena);
 
                 //se la asigno a la password hardcode para simular la verificaci�n de la misma.
                 //_usuario.Password = "AQAAAAEAACcQAAAAEO+TBI8TRfmXp3HuIj9QOScByhl6O0ctDihEkV9ecvrOUZPMSfbIhEJQ5iaHHet73A==";
@@ -131,6 +168,11 @@ namespace WeeeTrackerAPI.Services
 
                 //----------------------------------------------------------------------------------------------------------------------------
                 // Generaci�n del Token.
+                
+                var resp = _context.ResponsabilidadesRecogidaEntregas
+                .Where(r => r.SidTercero == _usuario.SidTercero)
+                .Where(r => r.Estado == 1)
+                .ToList();
 
                 return JWTHelper.GetToken(
                     config,
@@ -139,7 +181,8 @@ namespace WeeeTrackerAPI.Services
                     _centroService.getCentros(this._usuario),
                     getPerfiles(this._usuario),
                     _residuoEspecificoService.getResiduos(),
-                    _marcaService.getMarcas()
+                    _marcaService.getMarcas(),
+                    resp
                 );
                 
                 //----------------------------------------------------------------------------------------------------------------------------
@@ -151,22 +194,35 @@ namespace WeeeTrackerAPI.Services
             }
         }
 
-        public object GetAll()
+        public object GetAll(int id)
         {
-            var usuarios = _context.WtkUsuario
-                .Select(item => new WtkUsuario
-                {
-                    Id = item.Id,
-                    Usuario = item.Usuario,
-                    Password = item.Password,
-                    SidTercero = item.SidTercero,
-                    SidTipoTercero = item.SidTipoTercero,
-                    Estado = item.Estado,
-                    WtkUsuarioPerfiles = item.WtkUsuarioPerfiles
-                })
-                .ToList();
+            var usuario = getUsuarioById(id);
 
-            return usuarios;
-        } 
+            foreach (var item in usuario.DireccionesTerceroContactosDireccionTerceros)
+            {
+                var list = _context.DireccionesTerceros.Where(d => d.PidDireccionTercero == item.SidDireccionTercero).FirstOrDefault();
+            }
+
+            // var lista = _context.DireccionesTerceroContactosDireccionTerceros
+            // .Where(p => p.SidContactoDireccionTercero == 47447)
+            //     .ToList();
+
+            // return new{lista};
+
+            // if (usuario != null)
+            // {
+            //     return getUsuarioDirecciones(usuario.PidContactoDireccionTercero);
+            // }
+
+            // usuario.Contrasena = BCrypt.Net.BCrypt.HashPassword("1234");
+            // usuario.Email = "daniel@ecolec.com";
+            
+            // _context.Entry(usuario).Property(x => x.Email).IsModified = true;
+            // _context.Entry(usuario).Property(x => x.Contrasena).IsModified = true;
+            // _context.ChangeTracker.DetectChanges();
+            // _context.SaveChanges();
+            
+            return new{usuario = usuario};
+        }
     }
 }
